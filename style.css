@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:root {
+	--background-color: #242424;
+	--primary-color: #ffffff;
+	--secondary-color: #525252;
+	--tags-border-bottom: 1px solid #ffffff;
+}
+
+body {
+	background-color: var(--background-color);
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	border-bottom: var(--tags-border-bottom);
+}
+
+header .header-top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 30px 30px;
+}
+
+header img {
+	width: 43px;
+	height: auto;
+}
+
+.menu-toggle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	background: none;
+	border: none;
+	padding: 8px;
+	cursor: pointer;
+	align-self: flex-end;
+}
+
+.menu-toggle span {
+	width: 22px;
+	height: 3px;
+	background-color: var(--primary-color);
+	border-radius: 2px;
+}
+
+header nav ul {
+	display: none;
+	list-style: none;
+}
+
+header nav ul li a {
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+header nav ul.opened {
+	display: flex;
+	flex-direction: column;
+	gap: 17px;
+	padding: 17px 17px;
+	margin: 0;
+	text-align: left;
+}
+
+header nav ul.opened li a {
+	display: block;
+	padding: 12px 12px;
+}
+
+header nav ul.opened li a:hover {
+	background-color: var(--secondary-color);
+
+}
+
+.secondary-texts {
+	font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 320px) {}
+
+@media (min-width: 481px) {}
+
+@media (min-width: 769px) {
+
+	header {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0px 100px;
+		height: 86px;
+	}
+
+	header .header-top {
+		padding: 0px 0px;
+	}
+
+	.menu-toggle {
+		display: none;
+	}
+
+	header nav ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		gap: 34px;
+	}
+
+	header nav ul.opened {
+		flex-direction: row;
+		gap: 34px;
+		padding: 0;
+		margin: 0;
+	}
+
+	header nav ul li a:hover {
+		text-decoration: underline;
+		text-decoration-thickness: 3px;
+		text-underline-offset: 10px;
+	}
+
+	header nav ul.opened li a {
+		display: inline;
+		padding: 0;
+	}
+
+	header nav ul.opened li a:hover {
+		background-color: transparent;
+	}
+}
+
+@media (min-width: 1025px) {}
+
+@media (min-width: 1201px) {}
