@@ -4,10 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Luigi Nery Portfolio</title>
 
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" type="image/png" href="assets/LuigiGamesLogo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@600&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,33 +21,56 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
+    <header>
+        <div class="header-top">
+            <img src="assets/LuigiGamesLogo.png" alt="Logo do site">
+
+            <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#" class="secondary-texts">Home</a></li>
+                <li><a href="#" class="secondary-texts">Projects</a></li>
+                <li><a href="#" class="secondary-texts">Side Projects</a></li>
+                <li><a href="#" class="secondary-texts">Skills</a></li>
+                <li><a href="#" class="secondary-texts">About & Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-        <header>
-
-            <div class="header-top">
-                <img src="assets/LuigiGamesLogo.png" alt="Logo do site">
-
-                <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+        <section>
+            <video class="video" autoplay muted loop playsinline>
+                <source src="assets/Big_Buck_Bunny_1080_10s_5MB.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+                <div class="text-block">
+                    <p class="code-texts">
+                        <span class="code-class">Player</span><span class="code-parentheses">.</span><span class="code-function-name">Initialize</span><span class="code-parentheses">();</span>
+                    </p>
+                    <h1 class="title-texts">Luigi Nery</h1>
+                    <h2 class="title-texts">Game Developer</h2>
+                </div>
             </div>
-
-            <nav>
-                <ul>
-                    <li><a href="#" class="secondary-texts">Home</a></li>
-                    <li><a href="#" class="secondary-texts">Projects</a></li>
-                    <li><a href="#" class="secondary-texts">Side Projects</a></li>
-                    <li><a href="#" class="secondary-texts">Skills</a></li>
-                    <li><a href="#" class="secondary-texts">About & Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        </section>
     </main>
+
+    <footer>
+        <p class="secondary-texts">© 2026 Luigi Nery. All rights reserved.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
