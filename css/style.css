@@ -247,6 +247,21 @@ main .video-section {
 	}
 }
 
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 24px 20px;
+	text-align: center;
+	color: var(--primary-color);
+}
+
+footer p {
+	margin: 0;
+	font-size: 14px;
+	opacity: 0.7;
+}
+
 @media (min-width: 320px) {}
 
 @media (min-width: 481px) {
