@@ -1,0 +1,241 @@
+.about-page {
+    color: var(--primary-color);
+}
+
+.about-page [hidden] {
+    display: none;
+}
+
+.about-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-inline: 20px;
+    padding-block-end: 40px;
+}
+
+.about-slideshow {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.about-slide {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+.about-slide-enter {
+    animation: about-slide-fade 0.35s ease;
+}
+
+@keyframes about-slide-fade {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-slide-photo {
+    position: relative;
+    justify-self: center;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+}
+
+.about-slide-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-slide-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    line-height: 1.7;
+}
+
+.about-slide-counter {
+    font-size: 13px;
+    color: var(--code-texts-commentary-color);
+}
+
+.about-slide-title {
+    margin: 8px 0 20px;
+    font-size: 32px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.about-slide-content> :first-child {
+    margin-top: 0;
+}
+
+.about-slide-content h4 {
+    margin: 24px 0 8px;
+    font-family: 'Oxanium', sans-serif;
+    font-size: 20px;
+}
+
+.about-slide-content p {
+    margin: 0 0 14px;
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+.about-slide-content ul,
+.about-slide-content ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+.about-section-title {
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--code-texts-commentary-color);
+}
+
+.about-contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.about-contacts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+    gap: 12px;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-contact {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+    padding: 14px 16px;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.about-contact:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: var(--primary-color);
+}
+
+.about-contact-icon {
+    flex-shrink: 0;
+    width: 24px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.about-contact-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.about-contact-label {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.about-contact-value {
+    overflow-wrap: anywhere;
+    font-size: 15px;
+}
+
+.about-contact-arrow {
+    flex-shrink: 0;
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.about-contact:hover .about-contact-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-resume {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    gap: 10px;
+    padding: 14px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--background-color);
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    transition: opacity 0.2s ease;
+}
+
+.about-resume:hover {
+    opacity: 0.85;
+}
+
+@media (min-width: 805px) {
+    .about-slide {
+        grid-template-columns: auto minmax(0, 760px);
+        justify-content: center;
+        align-items: center;
+        gap: 56px;
+    }
+
+    .about-slide-photo {
+        width: auto;
+        max-width: none;
+        height: clamp(360px, 58svh, 640px);
+    }
+
+    .about-slide-text {
+        max-width: 760px;
+        max-height: clamp(360px, 58svh, 640px);
+        overflow-y: auto;
+        padding-top: 8px;
+    }
+
+    .about-slide-title {
+        font-size: 44px;
+    }
+}
+
+@media (min-width: 1201px) {
+    .about-contact-row {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .about-resume {
+        align-self: stretch;
+    }
+}

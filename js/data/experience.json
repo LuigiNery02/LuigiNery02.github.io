@@ -1,0 +1,36 @@
+[
+  {
+    "id": "example-experience-3",
+    "project": "[Example] Project Name",
+    "organization": "[Example] Studio C",
+    "role": "Gameplay Programmer",
+    "type": "Full-time",
+    "start": "2024-11",
+    "end": null,
+    "area": "programming",
+    "image": "assets/projects/nova-heights/cover.png"
+  },
+  {
+    "id": "example-experience-2",
+    "project": "[Example] Another Project",
+    "organization": "[Example] Studio B",
+    "role": "Technical Sound Designer",
+    "type": "Freelance",
+    "start": "2024-08",
+    "end": "2024-12",
+    "area": "sound-design",
+    "image": "assets/projects/nova-heights/cover.png"
+  },
+  {
+    "id": "example-experience-1",
+    "project": "Nova Heights",
+    "organization": "Universidade Anhembi Morumbi",
+    "role": "Programmer",
+    "type": "Academic",
+    "start": "2023-02",
+    "end": "2024-06",
+    "area": "programming",
+    "image": "assets/projects/nova-heights/cover.png",
+    "projectId": "nova-heights"
+  }
+]

@@ -1,5 +1,6 @@
 import { renderRichContent } from "../systems/rich-text.js";
 import { createAreaTag } from "./area-tag.js";
+import { createStepNavigation } from "./step-navigation.js";
 
 const TABS = [
     { key: "aboutTheWork", label: "About the Work" },
@@ -80,7 +81,6 @@ function createMedia(item) {
 
 export function createContributionModal(areas) {
     let tabs = [];
-    let currentIndex = 0;
 
     const dialog = createElement("dialog", "contribution-modal");
     const panel = createElement("div", "contribution-modal-panel");
@@ -103,22 +103,19 @@ export function createContributionModal(areas) {
     const mediaColumn = createElement("div", "contribution-modal-media");
     body.append(textColumn, mediaColumn);
 
+    const navigation = createStepNavigation(showTab, {
+        previousLabel: "Previous tab",
+        nextLabel: "Next tab"
+    });
+
     const footer = createElement("div", "contribution-modal-footer");
-    const previousButton = createIconButton("contribution-modal-nav", "Previous tab", "fa-chevron-left");
-    const nextButton = createIconButton("contribution-modal-nav", "Next tab", "fa-chevron-right");
-    const dots = createElement("div", "contribution-modal-dots");
-    footer.append(previousButton, dots, nextButton);
+    footer.appendChild(navigation.element);
 
     panel.append(header, body, footer);
     dialog.appendChild(panel);
 
     function showTab(index) {
-        if (index < 0 || index >= tabs.length) {
-            return;
-        }
-
-        currentIndex = index;
-        const tab = tabs[currentIndex];
+        const tab = tabs[index];
 
         tabTitle.textContent = `// ${tab.label}`;
         textContent.replaceChildren(renderRichContent(tab.content ?? []));
@@ -130,12 +127,7 @@ export function createContributionModal(areas) {
         mediaColumn.hidden = media.length === 0;
         body.classList.toggle("contribution-modal-body-text-only", media.length === 0);
 
-        previousButton.disabled = currentIndex === 0;
-        nextButton.disabled = currentIndex === tabs.length - 1;
-
-        [...dots.children].forEach((dot, dotIndex) => {
-            dot.setAttribute("aria-current", String(dotIndex === currentIndex));
-        });
+        navigation.setIndex(index);
     }
 
     function open(contribution) {
@@ -162,22 +154,13 @@ export function createContributionModal(areas) {
             }
         });
 
-        dots.replaceChildren(...tabs.map((tab, index) => {
-            const dot = createElement("button", "contribution-modal-dot");
-            dot.type = "button";
-            dot.setAttribute("aria-label", tab.label);
-            dot.addEventListener("click", () => showTab(index));
-            return dot;
-        }));
-
+        navigation.setSteps(tabs.map(tab => tab.label));
         footer.hidden = tabs.length < 2;
 
         showTab(0);
         dialog.showModal();
     }
 
-    previousButton.addEventListener("click", () => showTab(currentIndex - 1));
-    nextButton.addEventListener("click", () => showTab(currentIndex + 1));
     closeButton.addEventListener("click", () => dialog.close());
 
     dialog.addEventListener("click", event => {
@@ -186,19 +169,7 @@ export function createContributionModal(areas) {
         }
     });
 
-    dialog.addEventListener("keydown", event => {
-        if (event.target.tagName === "VIDEO") {
-            return;
-        }
-
-        if (event.key === "ArrowLeft") {
-            event.preventDefault();
-            showTab(currentIndex - 1);
-        } else if (event.key === "ArrowRight") {
-            event.preventDefault();
-            showTab(currentIndex + 1);
-        }
-    });
+    dialog.addEventListener("keydown", navigation.handleKey);
 
     dialog.addEventListener("close", () => {
         mediaColumn.replaceChildren();

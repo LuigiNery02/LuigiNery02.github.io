@@ -1,0 +1,64 @@
+{
+  "slides": [
+    {
+      "photo": "assets/website/LuigiGamesLogo.png",
+      "title": "[Placeholder] Who I Am",
+      "content": [
+        "[Placeholder] Write a short introduction about yourself: who you are, what you do and what drives you.",
+        "[Placeholder] You can use **bold**, *italic* and lists in any slide."
+      ]
+    },
+    {
+      "photo": "assets/projects/nova-heights/cover.png",
+      "title": "[Placeholder] My Journey",
+      "content": [
+        "[Placeholder] Talk about how you started making games and your background."
+      ]
+    },
+    {
+      "photo": "assets/website/LuigiGamesLogo.png",
+      "title": "[Placeholder] Outside of Work",
+      "content": [
+        "[Placeholder] Hobbies, interests and what inspires you.",
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "[Placeholder] Interest one",
+            "[Placeholder] Interest two"
+          ]
+        }
+      ]
+    }
+  ],
+  "contacts": [
+    {
+      "label": "Email",
+      "value": "[Placeholder] your@email.com",
+      "href": "mailto:your@email.com",
+      "icon": "fa-solid fa-envelope"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "[Placeholder] /in/your-profile",
+      "href": "https://www.linkedin.com/",
+      "icon": "fa-brands fa-linkedin"
+    },
+    {
+      "label": "GitHub",
+      "value": "LuigiNery02",
+      "href": "https://github.com/LuigiNery02",
+      "icon": "fa-brands fa-github"
+    },
+    {
+      "label": "itch.io",
+      "value": "[Placeholder] your-profile.itch.io",
+      "href": "https://itch.io/",
+      "icon": "fa-brands fa-itch-io"
+    }
+  ],
+  "resume": {
+    "label": "Download CV",
+    "href": "assets/website/cv.pdf"
+  }
+}

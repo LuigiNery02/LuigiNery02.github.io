@@ -1,12 +1,14 @@
 import {
     loadProject,
     loadSiteContent,
+    loadExperience,
     loadTechnologies,
     loadAreas
 } from "../systems/data-loader.js";
 import { loadSkills } from "../systems/skills.js";
 import { createProjectCard } from "../components/project-card.js";
 import { createSkillCard } from "../components/skill-card.js";
+import { createExperienceTimeline } from "../components/experience-timeline.js";
 import "../components/navigation.js";
 
 function createMoreCard(href, label) {
@@ -58,12 +60,13 @@ async function initializeHome() {
         ...siteContent.featuredProjects.secondary
     ];
 
-    const [featuredProjects, sideProjects, technologies, areas, skills] = await Promise.all([
+    const [featuredProjects, sideProjects, technologies, areas, skills, experience] = await Promise.all([
         Promise.all(featuredProjectIds.map(id => loadProject(id))),
         Promise.all(siteContent.sideProjects.map(id => loadProject(id))),
         loadTechnologies(),
         loadAreas(),
-        loadSkills()
+        loadSkills(),
+        loadExperience()
     ]);
 
     const projectsContainer = document.querySelector(".projects-container");
@@ -80,6 +83,10 @@ async function initializeHome() {
         skills,
         areas
     );
+
+    document
+        .querySelector(".experience-container")
+        .appendChild(createExperienceTimeline(experience, areas));
 }
 
 initializeHome();

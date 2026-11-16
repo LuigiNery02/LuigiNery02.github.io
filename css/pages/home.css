@@ -16,6 +16,11 @@
     padding-block-end: 40px;
 }
 
+.experience-container {
+    padding-inline: 20px;
+    padding-block-end: 40px;
+}
+
 .main-section.skills-section {
     min-height: auto;
 }

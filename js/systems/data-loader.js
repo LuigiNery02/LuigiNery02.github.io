@@ -5,6 +5,8 @@ const GENRES_URL = new URL("../data/genres.json", import.meta.url);
 const PROJECTS_INDEX_URL = new URL("../data/projects/index.json", import.meta.url);
 const SIDE_PROJECTS_INDEX_URL = new URL("../data/side-projects/index.json", import.meta.url);
 const SITE_CONTENT_URL = new URL("../data/site-content.json", import.meta.url);
+const EXPERIENCE_URL = new URL("../data/experience.json", import.meta.url);
+const ABOUT_URL = new URL("../data/about.json", import.meta.url);
 
 async function fetchJson(url, label) {
     const response = await fetch(url);
@@ -91,4 +93,12 @@ export async function loadProjects(collection) {
 
 export function loadSiteContent() {
     return fetchJson(SITE_CONTENT_URL, "site content");
+}
+
+export function loadExperience() {
+    return fetchJson(EXPERIENCE_URL, "experience");
+}
+
+export function loadAbout() {
+    return fetchJson(ABOUT_URL, "about");
 }
