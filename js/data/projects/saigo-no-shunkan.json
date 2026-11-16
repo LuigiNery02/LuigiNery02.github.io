@@ -1,0 +1,27 @@
+{
+  "id": "saigo-no-shunkan",
+  "title": "Saigo No Shunkan",
+  "cover": "assets/projects/saigo-no-shunkan/cover.png",
+  "classification": {
+    "type": "academic",
+    "subtype": ""
+  },
+  "organization": {
+    "name": "Universidade Anhembi Morumbi"
+  },
+  "general": {
+    "year": 2022,
+    "status": "completed",
+    "technologies": ["unity"],
+    "platforms": ["pc"],
+    "genres": ["action-adventure"],
+    "teamSize": 8
+  },
+  "order": 4,
+  "details": {
+    "about": [],
+    "contributions": [],
+    "learnings": []
+  },
+  "gallery": []
+}

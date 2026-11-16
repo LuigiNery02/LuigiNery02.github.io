@@ -1,0 +1,18 @@
+[
+  {
+    "id": "action-adventure",
+    "name": "Action-Adventure"
+  },
+  {
+    "id": "puzzle",
+    "name": "Puzzle"
+  },
+  {
+    "id": "platformer",
+    "name": "Platformer"
+  },
+  {
+    "id": "strategy",
+    "name": "Strategy"
+  }
+]

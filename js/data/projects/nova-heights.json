@@ -1,0 +1,27 @@
+{
+  "id": "nova-heights",
+  "title": "Nova Heights",
+  "cover": "assets/projects/nova-heights/cover.png",
+  "classification": {
+    "type": "academic",
+    "subtype": "final-project"
+  },
+  "organization": {
+    "name": "Universidade Anhembi Morumbi"
+  },
+  "general": {
+    "year": 2023,
+    "status": "completed",
+    "technologies": ["unity"],
+    "platforms": ["pc"],
+    "genres": ["action-adventure"],
+    "teamSize": 8
+  },
+  "order": 1,
+  "details": {
+    "about": [],
+    "contributions": [],
+    "learnings": []
+  },
+  "gallery": []
+}

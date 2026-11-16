@@ -1,0 +1,27 @@
+{
+  "id": "math-cubes",
+  "title": "Math Cubes",
+  "cover": "assets/projects/math-cubes/cover.png",
+  "classification": {
+    "type": "personal",
+    "subtype": ""
+  },
+  "organization": {
+    "name": "Luigi Games"
+  },
+  "general": {
+    "year": 2024,
+    "status": "completed",
+    "technologies": ["unity"],
+    "platforms": ["android"],
+    "genres": ["puzzle"],
+    "teamSize": 1
+  },
+  "order": 2,
+  "details": {
+    "about": [],
+    "contributions": [],
+    "learnings": []
+  },
+  "gallery": []
+}

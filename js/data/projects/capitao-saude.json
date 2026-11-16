@@ -1,0 +1,27 @@
+{
+  "id": "capitao-saude",
+  "title": "Capitão Saúde",
+  "cover": "assets/projects/capitao-saude/cover.png",
+  "classification": {
+    "type": "academic",
+    "subtype": ""
+  },
+  "organization": {
+    "name": "Silent Bird"
+  },
+  "general": {
+    "year": 2021,
+    "status": "completed",
+    "technologies": ["unity"],
+    "platforms": ["android"],
+    "genres": ["puzzle"],
+    "teamSize": 4
+  },
+  "order": 3,
+  "details": {
+    "about": [],
+    "contributions": [],
+    "learnings": []
+  },
+  "gallery": []
+}

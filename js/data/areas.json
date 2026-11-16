@@ -1,0 +1,20 @@
+[
+  {
+    "id": "programming",
+    "name": "Programming",
+    "color": "#4A90E2",
+    "order": 1
+  },
+  {
+    "id": "3d-modeling",
+    "name": "3D Modeling",
+    "color": "#52A879",
+    "order": 2
+  },
+  {
+    "id": "sound-design",
+    "name": "Sound Design",
+    "color": "#A879D8",
+    "order": 3
+  }
+]

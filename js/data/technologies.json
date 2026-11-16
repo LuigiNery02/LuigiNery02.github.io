@@ -1,0 +1,26 @@
+[
+    {
+        "id": "unity",
+        "name": "Unity",
+        "category": "engine",
+        "area": "programming",
+        "icon": "assets/icons/unity.svg",
+        "order": 1,
+        "skill": {
+            "enabled": true,
+            "initialProjects": 1,
+            "baseProjectsPerLevel": 2,
+            "increasePerLevel": 1
+        }
+    },
+    {
+        "id": "fmod",
+        "name": "FMOD",
+        "category": "tool",
+        "area": "sound-design",
+        "order": 2,
+        "skill": {
+            "enabled": false
+        }
+    }
+]

@@ -123,8 +123,7 @@ header nav ul.opened li a:hover {
 main {
 	display: flex;
 	flex-direction: column;
-	flex: 0 0 auto;
-	height: auto;
+	flex: 1;
 }
 
 main .video-section {
@@ -210,7 +209,7 @@ main .video-section {
 	align-items: center;
 	flex-direction: column;
 	padding: 30px 30px;
-	border-bottom: var(--tags-border-bottom);
+	/*border-bottom: var(--tags-border-bottom);*/
 }
 
 .title-section .title-texts {
@@ -251,6 +250,11 @@ main .video-section {
 @media (min-width: 320px) {}
 
 @media (min-width: 481px) {
+
+	.main-section {
+		padding-inline: 20px;
+	}
+
 	.title-section .title-links {
 		font-size: 15px;
 	}
@@ -314,6 +318,14 @@ main .video-section {
 		font-size: 30px;
 	}
 
+	.main-section {
+		min-height: 100vh;
+		min-height: 100svh;
+		display: flex;
+		flex-direction: column;
+		padding-inline: 40px;
+	}
+
 	.title-section {
 		flex-direction: row;
 		justify-content: space-between;
@@ -330,6 +342,10 @@ main .video-section {
 		font-size: 41px;
 	}
 
+	.main-section {
+		padding-inline: 60px;
+	}
+
 	.title-section .title-texts {
 		font-size: 40px;
 	}
@@ -342,6 +358,10 @@ main .video-section {
 
 	.video-overlay .text-block h2 {
 		font-size: 57px;
+	}
+
+	.main-section {
+		padding-inline: 100px;
 	}
 
 	.title-section .title-texts {

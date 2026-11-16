@@ -1,0 +1,27 @@
+{
+    "featuredProjects": {
+        "main": "nova-heights",
+        "secondary": [
+            "math-cubes",
+            "capitao-saude",
+            "saigo-no-shunkan"
+        ]
+    },
+    "sideProjects": [
+        "project-id-1",
+        "project-id-2"
+    ],
+    "skills": {
+        "programming": [
+            "unity",
+            "csharp"
+        ],
+        "3d-modeling": [
+            "blender",
+            "zbrush"
+        ],
+        "sound-design": [
+            "fmod"
+        ]
+    }
+}

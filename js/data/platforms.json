@@ -1,0 +1,18 @@
+[
+  {
+    "id": "pc",
+    "name": "PC"
+  },
+  {
+    "id": "android",
+    "name": "Android"
+  },
+  {
+    "id": "web",
+    "name": "Web"
+  },
+  {
+    "id": "ios",
+    "name": "iOS"
+  }
+]

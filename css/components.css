@@ -1,0 +1,140 @@
+.project-card {
+    container-type: inline-size;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    border-radius: 12px;
+}
+
+.project-card a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 3.75cqi;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 2.5cqi;
+}
+
+.project-card-image>img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.project-card-technologies {
+    position: absolute;
+    bottom: 5cqi;
+    left: 5cqi;
+    display: flex;
+    align-items: center;
+    gap: 2.5cqi;
+}
+
+.project-card-technologies img {
+    width: 10cqi;
+    height: 10cqi;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.project-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5cqi;
+    padding: 5cqi;
+}
+
+.project-card-title,
+.project-card-meta,
+.project-card-areas {
+    --fit-scale: 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.project-card-title {
+    margin: 0;
+    font-size: calc(6cqi * var(--fit-scale));
+}
+
+.project-card-meta {
+    display: flex;
+    align-items: baseline;
+    gap: calc(3.75cqi * var(--fit-scale));
+}
+
+.project-card-type {
+    flex-shrink: 0;
+    font-size: calc(3.75cqi * var(--fit-scale));
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+}
+
+.project-card-organization {
+    flex-shrink: 0;
+    font-size: calc(4.25cqi * var(--fit-scale));
+    opacity: 0.8;
+}
+
+.project-card-areas {
+    display: flex;
+    align-items: center;
+    gap: calc(2.5cqi * var(--fit-scale));
+    min-height: calc(3.75cqi * 1.2 + 1.5cqi);
+}
+
+.project-card-area {
+    flex-shrink: 0;
+    font-size: calc(3.75cqi * var(--fit-scale));
+    line-height: 1.2;
+    padding: calc(0.75cqi * var(--fit-scale)) calc(2.5cqi * var(--fit-scale));
+    border-radius: 1.5cqi;
+}
+
+.project-card-overlay-title {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-size: 8cqi;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card-overlay-title {
+    opacity: 1;
+}
+
+.project-card:hover .project-card-image>img {
+    filter: brightness(0.5);
+}
+
+.project-card-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-more a {
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-more-icon {
+    font-size: 20cqi;
+}

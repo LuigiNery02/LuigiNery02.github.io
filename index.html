@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luigi Nery Portfolio</title>
 
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/home.css">
 
-    <link rel="shortcut icon" type="image/png" href="assets/LuigiGamesLogo.png" />
+    <link rel="shortcut icon" type="image/png" href="assets/website/LuigiGamesLogo.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +36,7 @@
 <body>
     <header>
         <div class="header-top">
-            <img src="assets/LuigiGamesLogo.png" alt="Logo do site">
+            <img src="assets/website/LuigiGamesLogo.png" alt="Site logo">
 
             <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">
                 <span></span>
@@ -57,7 +59,7 @@
     <main>
         <section class="video-section">
             <video class="video" autoplay muted loop playsinline>
-                <source src="assets/Big_Buck_Bunny_1080_10s_5MB.mp4" type="video/mp4">
+                <source src="assets/website/Big_Buck_Bunny_1080_10s_5MB.mp4" type="video/mp4">
             </video>
             <div class="video-overlay">
                 <div class="text-block">
@@ -71,28 +73,33 @@
             </div>
         </section>
 
-        <section>
+        <section class="main-section">
             <div class="title-section">
                 <h2 class="title-texts">Projects</h2>
-                <a class="title-links code-texts" href="#">// View All Projects <i class="fa-solid fa-square-arrow-up-right icon-link"></i></a>
+                <a class="title-links code-texts" href="#">// View All Projects <i
+                        class="fa-solid fa-square-arrow-up-right icon-link"></i></a>
             </div>
+
+            <div class="projects-container"></div>
         </section>
 
-        <section>
+        <section class="main-section">
             <div class="title-section">
                 <h2 class="title-texts">Side Projects</h2>
-                <a class="title-links code-texts" href="#">// View All Side Projects <i class="fa-solid fa-square-arrow-up-right icon-link"></i></a>
+                <a class="title-links code-texts" href="#">// View All Side Projects <i
+                        class="fa-solid fa-square-arrow-up-right icon-link"></i></a>
             </div>
         </section>
 
-        <section>
+        <section class="main-section">
             <div class="title-section">
                 <h2 class="title-texts">Skills</h2>
-                <a class="title-links code-texts" href="#">// Explore All Skills <i class="fa-solid fa-square-arrow-up-right icon-link"></i></a>
+                <a class="title-links code-texts" href="#">// Explore All Skills <i
+                        class="fa-solid fa-square-arrow-up-right icon-link"></i></a>
             </div>
         </section>
 
-        <section>
+        <section class="main-section">
             <div class="title-section">
                 <h2 class="title-texts">Experience</h2>
             </div>
@@ -103,7 +110,7 @@
         <p class="secondary-texts">© 2026 Luigi Nery. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="js/pages/home.js"></script>
 </body>
 
 </html>
