@@ -25,17 +25,66 @@
     ],
     "contributions": [
       {
+        "title": "[Placeholder] Save System",
         "primaryArea": "programming",
-        "items": [
-          {
-            "title": "[Placeholder] Player controller",
-            "description": "[Placeholder] Describe what you built, how it works and which problems you solved."
+        "relatedAreas": [],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "details": {
+          "aboutTheWork": {
+            "content": [
+              "[Placeholder] Explain the **purpose** of the save system and how it fits the game.",
+              { "type": "heading", "text": "Implementation" },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Three independent save slots",
+                  "Encrypted save files using `AES`",
+                  "Automatic checkpoints between areas"
+                ]
+              },
+              { "type": "heading", "text": "Challenges" },
+              "[Placeholder] Describe the *main decisions* and problems you faced."
+            ],
+            "media": [
+              {
+                "type": "image",
+                "src": "assets/projects/nova-heights/cover.png",
+                "caption": "[Placeholder] Save slot selection screen"
+              }
+            ]
           },
-          {
-            "title": "[Placeholder] Combat system",
-            "description": "[Placeholder] Describe your role in this part of the project."
+          "myRole": {
+            "content": [
+              "[Placeholder] Describe what you personally implemented in this system."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/website/Big_Buck_Bunny_1080_10s_5MB.mp4",
+                "caption": "[Placeholder] Save and load demonstration"
+              }
+            ]
+          },
+          "whatILearned": {
+            "content": [
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "[Placeholder] Serializing game state safely",
+                  "[Placeholder] Versioning save files between builds"
+                ]
+              }
+            ]
           }
-        ]
+        }
+      },
+      {
+        "title": "[Placeholder] Combat System",
+        "primaryArea": "programming",
+        "relatedAreas": ["sound-design"],
+        "summary": "[Placeholder] Implemented melee combat and hooked combat events to the audio system."
       }
     ],
     "learnings": [
@@ -43,5 +92,25 @@
       "[Placeholder] Structuring gameplay code to be reused across levels."
     ]
   },
-  "gallery": []
+  "gallery": [
+    {
+      "type": "video",
+      "src": "assets/website/Big_Buck_Bunny_1080_10s_5MB.mp4",
+      "caption": "[Placeholder] Gameplay trailer"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/nova-heights/cover.png",
+      "caption": "[Placeholder] Screenshot 1"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/nova-heights/cover.png",
+      "caption": "[Placeholder] Screenshot 2"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/nova-heights/cover.png"
+    }
+  ]
 }

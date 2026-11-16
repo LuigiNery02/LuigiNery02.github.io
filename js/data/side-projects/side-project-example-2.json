@@ -1,0 +1,43 @@
+{
+  "id": "side-project-example-2",
+  "title": "[Example] Ambient Soundscapes",
+  "cover": "assets/projects/nova-heights/cover.png",
+  "classification": {
+    "type": "prototype",
+    "subtype": ""
+  },
+  "organization": {
+    "name": "Luigi Games"
+  },
+  "general": {
+    "year": 2025,
+    "status": "completed",
+    "technologies": ["unity", "fmod"],
+    "platforms": ["pc"],
+    "teamSize": 1
+  },
+  "order": 2,
+  "details": {
+    "about": [
+      "[Placeholder] An interactive prototype exploring adaptive ambient audio."
+    ],
+    "contributions": [
+      {
+        "title": "[Placeholder] Adaptive Music System",
+        "primaryArea": "sound-design",
+        "relatedAreas": ["programming"],
+        "summary": "[Placeholder] Created ambient layers that react to the player's position."
+      },
+      {
+        "title": "[Placeholder] FMOD Integration",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "summary": "[Placeholder] Connected gameplay parameters from Unity to FMOD events."
+      }
+    ],
+    "learnings": [
+      "[Placeholder] Designing audio that reacts to gameplay parameters."
+    ]
+  },
+  "gallery": []
+}

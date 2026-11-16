@@ -1,4 +1,5 @@
 import {
+    findProjectCollection,
     loadProject,
     loadTechnologies,
     loadAreas,
@@ -6,6 +7,9 @@ import {
     loadGenres
 } from "../systems/data-loader.js";
 import { getProjectAreas } from "../systems/project-data.js";
+import { createGallery } from "../components/gallery.js";
+import { createAreaTag } from "../components/area-tag.js";
+import { createContributionList } from "../components/contribution-list.js";
 import "../components/navigation.js";
 
 function capitalize(text) {
@@ -24,12 +28,6 @@ function createElement(tag, className, text) {
     }
 
     return element;
-}
-
-function createAreaTag(area) {
-    const tag = createElement("span", "area-tag", area.name);
-    tag.style.backgroundColor = area.color;
-    return tag;
 }
 
 function findById(list, id) {
@@ -78,37 +76,9 @@ function renderContributions(project, areas) {
         return;
     }
 
-    const container = document.querySelector(".project-contributions");
-
-    contributions.forEach(contribution => {
-        const group = createElement("li", "project-contribution");
-        const area = findById(areas, contribution.primaryArea);
-
-        if (area) {
-            group.appendChild(createAreaTag(area));
-        }
-
-        const items = createElement("ul", "project-contribution-items");
-
-        contribution.items.forEach(entry => {
-            const item = createElement("li", "project-contribution-item");
-
-            item.appendChild(
-                createElement("h3", "project-contribution-title secondary-texts", entry.title)
-            );
-
-            if (entry.description) {
-                item.appendChild(
-                    createElement("p", "project-contribution-description secondary-texts", entry.description)
-                );
-            }
-
-            items.appendChild(item);
-        });
-
-        group.appendChild(items);
-        container.appendChild(group);
-    });
+    document
+        .querySelector(".project-contributions")
+        .appendChild(createContributionList(contributions, areas));
 
     showSection("contributions");
 }
@@ -130,6 +100,7 @@ function renderGallery(project) {
         return;
     }
 
+    document.querySelector(".project-gallery").appendChild(createGallery(project.gallery));
     showSection("gallery");
 }
 
@@ -223,7 +194,14 @@ async function initializeProjectPage() {
     let project;
 
     try {
+        const collection = await findProjectCollection(id);
         project = await loadProject(id);
+
+        if (collection === "side-projects") {
+            const backLink = document.querySelector(".project-back");
+            backLink.href = "side-projects.html";
+            backLink.textContent = "// Back to Side Projects";
+        }
     } catch (error) {
         console.error(error);
         showNotFound();

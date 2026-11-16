@@ -4,8 +4,51 @@ import {
     loadTechnologies,
     loadAreas
 } from "../systems/data-loader.js";
+import { loadSkills } from "../systems/skills.js";
 import { createProjectCard } from "../components/project-card.js";
+import { createSkillCard } from "../components/skill-card.js";
 import "../components/navigation.js";
+
+function createMoreCard(href, label) {
+    const moreCard = document.createElement("article");
+    moreCard.classList.add("project-card", "project-card-more");
+
+    const moreLink = document.createElement("a");
+    moreLink.href = href;
+    moreLink.setAttribute("aria-label", label);
+
+    const plusIcon = document.createElement("span");
+    plusIcon.classList.add("project-card-more-icon");
+    plusIcon.textContent = "+";
+
+    moreLink.appendChild(plusIcon);
+    moreCard.appendChild(moreLink);
+
+    return moreCard;
+}
+
+function renderCards(container, projects, technologies, areas, featuredId) {
+    projects.forEach(project => {
+        const card = createProjectCard(project, technologies, areas);
+
+        if (project.id === featuredId) {
+            card.classList.add("project-card-featured");
+        }
+
+        container.appendChild(card);
+    });
+}
+
+function renderSkillsOverview(container, selection, skills, areas) {
+    [...areas]
+        .sort((a, b) => a.order - b.order)
+        .forEach(area => {
+            (selection[area.id] ?? [])
+                .map(id => skills.find(skill => skill.technology.id === id))
+                .filter(Boolean)
+                .forEach(skill => container.appendChild(createSkillCard(skill, area)));
+        });
+}
 
 async function initializeHome() {
     const siteContent = await loadSiteContent();
@@ -15,41 +58,28 @@ async function initializeHome() {
         ...siteContent.featuredProjects.secondary
     ];
 
-    const featuredProjects = await Promise.all(
-        featuredProjectIds.map(id => loadProject(id))
-    );
+    const [featuredProjects, sideProjects, technologies, areas, skills] = await Promise.all([
+        Promise.all(featuredProjectIds.map(id => loadProject(id))),
+        Promise.all(siteContent.sideProjects.map(id => loadProject(id))),
+        loadTechnologies(),
+        loadAreas(),
+        loadSkills()
+    ]);
 
     const projectsContainer = document.querySelector(".projects-container");
+    renderCards(projectsContainer, featuredProjects, technologies, areas, siteContent.featuredProjects.main);
+    projectsContainer.appendChild(createMoreCard("projects.html", "View all projects"));
 
-    const technologies = await loadTechnologies();
+    const sideProjectsContainer = document.querySelector(".side-projects-container");
+    renderCards(sideProjectsContainer, sideProjects, technologies, areas, siteContent.sideProjects[0]);
+    sideProjectsContainer.appendChild(createMoreCard("side-projects.html", "View all side projects"));
 
-    const areas = await loadAreas();
-
-    featuredProjects.forEach(project => {
-        const card = createProjectCard(project, technologies, areas);
-
-        if (project.order === 1) {
-            card.classList.add("project-card-featured");
-        }
-
-        projectsContainer.appendChild(card);
-    });
-
-    const moreCard = document.createElement("article");
-    moreCard.classList.add("project-card", "project-card-more");
-
-    const moreLink = document.createElement("a");
-    moreLink.href = "projects.html";
-    moreLink.setAttribute("aria-label", "View all projects");
-
-    const plusIcon = document.createElement("span");
-    plusIcon.classList.add("project-card-more-icon");
-    plusIcon.textContent = "+";
-
-    moreLink.appendChild(plusIcon);
-    moreCard.appendChild(moreLink);
-
-    projectsContainer.appendChild(moreCard);
+    renderSkillsOverview(
+        document.querySelector(".skills-overview"),
+        siteContent.skills,
+        skills,
+        areas
+    );
 }
 
 initializeHome();

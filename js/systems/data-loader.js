@@ -49,22 +49,25 @@ function fetchProject(collection, id) {
     return fetchJson(projectURL, `project "${id}"`);
 }
 
-export async function loadProject(id) {
+export async function findProjectCollection(id) {
     const [projects, sideProjects] = await Promise.all([
         loadProjectsIndex(),
         loadSideProjectsIndex()
     ]);
 
-    let collection;
-
     if (projects.some(project => project.id === id)) {
-        collection = "projects";
-    } else if (sideProjects.some(project => project.id === id)) {
-        collection = "side-projects";
-    } else {
-        throw new Error(`Project not found: ${id}`);
+        return "projects";
     }
 
+    if (sideProjects.some(project => project.id === id)) {
+        return "side-projects";
+    }
+
+    throw new Error(`Project not found: ${id}`);
+}
+
+export async function loadProject(id) {
+    const collection = await findProjectCollection(id);
     return await fetchProject(collection, id);
 }
 
