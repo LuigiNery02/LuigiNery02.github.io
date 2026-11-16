@@ -19,9 +19,29 @@
   },
   "order": 1,
   "details": {
-    "about": [],
-    "contributions": [],
-    "learnings": []
+    "about": [
+      "[Placeholder] Nova Heights is a 2D action-adventure game developed as the final project of the Game Design course, by a team of 8 people.",
+      "[Placeholder] Describe here the premise of the game, its main mechanics and what makes it unique."
+    ],
+    "contributions": [
+      {
+        "primaryArea": "programming",
+        "items": [
+          {
+            "title": "[Placeholder] Player controller",
+            "description": "[Placeholder] Describe what you built, how it works and which problems you solved."
+          },
+          {
+            "title": "[Placeholder] Combat system",
+            "description": "[Placeholder] Describe your role in this part of the project."
+          }
+        ]
+      }
+    ],
+    "learnings": [
+      "[Placeholder] Working with version control in a team of 8 people.",
+      "[Placeholder] Structuring gameplay code to be reused across levels."
+    ]
   },
   "gallery": []
 }

@@ -1,4 +1,5 @@
 import { fitTextToWidth } from "../systems/fit-text.js";
+import { getProjectAreas } from "../systems/project-data.js";
 
 export function createProjectCard(project, technologies, areas) {
     const card = document.createElement("article");
@@ -38,15 +39,7 @@ export function createProjectCard(project, technologies, areas) {
     const areaContainer = document.createElement("div");
     areaContainer.classList.add("project-card-areas");
 
-    const projectAreas = [
-        ...new Set(
-            project.details.contributions.map(
-                contribution => contribution.primaryArea
-            )
-        )
-    ];
-
-    projectAreas.forEach(areaId => {
+    getProjectAreas(project).forEach(areaId => {
         const area = areas.find(item => item.id === areaId);
 
         if (area) {

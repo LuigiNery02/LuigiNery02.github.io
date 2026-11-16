@@ -1,7 +1,7 @@
 .project-card {
     container-type: inline-size;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1;
     border: 1px solid;
     border-radius: 12px;
 }
@@ -18,13 +18,16 @@
 
 .project-card-image {
     position: relative;
+    flex: 1;
+    min-height: 0;
     width: 100%;
-    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 2.5cqi;
 }
 
 .project-card-image>img {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
@@ -122,6 +125,115 @@
 
 .project-card:hover .project-card-image>img {
     filter: brightness(0.5);
+}
+
+.side-panel {
+    padding: 20px;
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+}
+
+.side-panel-title {
+    margin: 0;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.project-filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.project-filter-clear {
+    padding: 0;
+    font-size: 12px;
+    color: var(--code-texts-commentary-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.project-filter-clear:hover {
+    text-decoration: underline;
+}
+
+.project-filter-group {
+    padding-block: 16px;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.project-filter-group:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.project-filter-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.project-filter-label::-webkit-details-marker {
+    display: none;
+}
+
+.project-filter-label::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.project-filter-group[open] .project-filter-label::after {
+    transform: rotate(180deg);
+}
+
+.project-filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.project-filter-option input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.project-filter-option-name {
+    flex: 1;
+}
+
+.project-filter-option-count {
+    font-size: 12px;
+    opacity: 0.6;
 }
 
 .project-card-more {

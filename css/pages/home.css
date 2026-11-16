@@ -6,22 +6,6 @@
     padding-block-end: 40px;
 }
 
-.projects-container .project-card {
-    height: auto;
-    aspect-ratio: 1;
-}
-
-.projects-container .project-card-image {
-    flex: 1;
-    min-height: 0;
-    aspect-ratio: auto;
-}
-
-.projects-container .project-card-image > img {
-    position: absolute;
-    inset: 0;
-}
-
 @media (min-width: 805px) {
     .projects-container {
         grid-template-columns: repeat(2, 1fr);
