@@ -8,14 +8,25 @@ const SITE_CONTENT_URL = new URL("../data/site-content.json", import.meta.url);
 const EXPERIENCE_URL = new URL("../data/experience.json", import.meta.url);
 const ABOUT_URL = new URL("../data/about.json", import.meta.url);
 
-async function fetchJson(url, label) {
-    const response = await fetch(url);
+const cache = new Map();
 
-    if (!response.ok) {
-        throw new Error(`Failed to load ${label}: ${response.status}`);
+function fetchJson(url, label) {
+    const key = url.toString();
+
+    if (!cache.has(key)) {
+        const request = fetch(url).then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load ${label}: ${response.status}`);
+            }
+
+            return response.json();
+        });
+
+        request.catch(() => cache.delete(key));
+        cache.set(key, request);
     }
 
-    return await response.json();
+    return cache.get(key);
 }
 
 export function loadAreas() {

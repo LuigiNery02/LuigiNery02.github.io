@@ -1,0 +1,92 @@
+.validate-page {
+    width: min(960px, 100%);
+    margin-inline: auto;
+    padding: 40px 20px;
+    color: var(--primary-color);
+}
+
+.validate-page h1 {
+    margin: 0 0 8px;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.validate-intro {
+    margin: 0 0 24px;
+    opacity: 0.7;
+}
+
+.validate-intro code {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.validate-summary {
+    margin: 0 0 32px;
+    padding: 14px 18px;
+    font-weight: 600;
+    border: 1px solid var(--secondary-color);
+    border-radius: 12px;
+}
+
+.validate-summary-ok {
+    border-color: #52A879;
+}
+
+.validate-summary-warning {
+    border-color: #E2B04A;
+}
+
+.validate-summary-error {
+    border-color: #E25C4A;
+}
+
+.validate-group {
+    margin-bottom: 28px;
+}
+
+.validate-file {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: var(--code-texts-commentary-color);
+}
+
+.validate-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.validate-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 1px solid var(--secondary-color);
+    border-left-width: 4px;
+    border-radius: 8px;
+}
+
+.validate-item-error {
+    border-left-color: #E25C4A;
+}
+
+.validate-item-warning {
+    border-left-color: #E2B04A;
+}
+
+.validate-item-info {
+    border-left-color: var(--secondary-color);
+    opacity: 0.7;
+}
+
+.validate-badge {
+    flex-shrink: 0;
+    width: 64px;
+    font-size: 11px;
+    text-transform: uppercase;
+}

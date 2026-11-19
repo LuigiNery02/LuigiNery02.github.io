@@ -2,6 +2,8 @@ import { loadAreas } from "../systems/data-loader.js";
 import { loadSkills } from "../systems/skills.js";
 import { createSkillGroup } from "../components/skill-card.js";
 import "../components/navigation.js";
+import "../systems/particles.js";
+import "../systems/image-fallback.js";
 
 async function initializeSkillsPage() {
     const [areas, skills] = await Promise.all([loadAreas(), loadSkills()]);

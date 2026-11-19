@@ -7,10 +7,13 @@ import {
     loadGenres
 } from "../systems/data-loader.js";
 import { getProjectAreas } from "../systems/project-data.js";
+import { renderRichContent, formatInline } from "../systems/rich-text.js";
 import { createGallery } from "../components/gallery.js";
 import { createAreaTag } from "../components/area-tag.js";
 import { createContributionList } from "../components/contribution-list.js";
 import "../components/navigation.js";
+import "../systems/particles.js";
+import "../systems/image-fallback.js";
 
 function capitalize(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
@@ -64,8 +67,7 @@ function renderAbout(project) {
         return;
     }
 
-    const container = document.querySelector(".project-about");
-    paragraphs.forEach(text => container.appendChild(createElement("p", "", text)));
+    document.querySelector(".project-about").appendChild(renderRichContent(paragraphs));
     showSection("about");
 }
 
@@ -91,7 +93,11 @@ function renderLearnings(project) {
     }
 
     const list = document.querySelector(".project-learnings");
-    learnings.forEach(text => list.appendChild(createElement("li", "", text)));
+    learnings.forEach(text => {
+        const item = createElement("li");
+        item.innerHTML = formatInline(text);
+        list.appendChild(item);
+    });
     showSection("learnings");
 }
 

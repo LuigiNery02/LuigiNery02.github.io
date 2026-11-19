@@ -2,6 +2,8 @@ import { loadAbout } from "../systems/data-loader.js";
 import { renderRichContent } from "../systems/rich-text.js";
 import { createStepNavigation } from "../components/step-navigation.js";
 import "../components/navigation.js";
+import "../systems/particles.js";
+import "../systems/image-fallback.js";
 
 function createContact(contact) {
     const item = document.createElement("li");

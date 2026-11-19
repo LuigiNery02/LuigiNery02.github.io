@@ -8,6 +8,8 @@ import { getProjectAreas } from "../systems/project-data.js";
 import { createProjectCard } from "../components/project-card.js";
 import { createProjectFilter } from "../components/project-filter.js";
 import "../components/navigation.js";
+import "../systems/particles.js";
+import "../systems/image-fallback.js";
 
 function buildOptions(projects, getValues, source) {
     const counts = new Map();

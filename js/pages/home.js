@@ -10,6 +10,8 @@ import { createProjectCard } from "../components/project-card.js";
 import { createSkillCard } from "../components/skill-card.js";
 import { createExperienceTimeline } from "../components/experience-timeline.js";
 import "../components/navigation.js";
+import "../systems/particles.js";
+import "../systems/image-fallback.js";
 
 function createMoreCard(href, label) {
     const moreCard = document.createElement("article");
