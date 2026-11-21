@@ -309,6 +309,56 @@
     opacity: 0.85;
 }
 
+.contribution-item a {
+    position: relative;
+    z-index: 1;
+}
+
+.contribution-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contribution-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.contribution-link i {
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+.contribution-link:hover,
+.contribution-link:focus-visible {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-color);
+}
+
+.rich-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--code-texts-commentary-color);
+    text-underline-offset: 3px;
+}
+
+.rich-link:hover,
+.rich-link:focus-visible {
+    text-decoration-color: currentColor;
+}
+
 .contribution-trigger {
     position: static;
     display: block;
@@ -512,7 +562,8 @@
 }
 
 .contribution-media-item img,
-.contribution-media-item video {
+.contribution-media-item video,
+.contribution-media-item iframe {
     display: block;
     width: 100%;
     background-color: #000000;
@@ -584,6 +635,36 @@
 .skill-group-count {
     font-size: 12px;
     color: var(--code-texts-commentary-color);
+}
+
+.skill-group-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skill-section-title {
+    margin: 0 0 12px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--code-texts-commentary-color);
+}
+
+.contribution-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contribution-skill {
+    padding: 2px 8px;
+    font-size: 12px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    opacity: 0.85;
 }
 
 .skill-card {
@@ -886,7 +967,12 @@
     margin: 0;
 }
 
-.gallery-video video {
+.contribution-media-item iframe {
+    aspect-ratio: 16 / 9;
+}
+
+.gallery-video video,
+.gallery-video iframe {
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;

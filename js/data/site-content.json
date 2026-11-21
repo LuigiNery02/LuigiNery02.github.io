@@ -1,26 +1,27 @@
 {
     "featuredProjects": {
-        "main": "nova-heights",
+        "main": "legion-setup-auto-battle",
         "secondary": [
+            "nova-heights",
             "math-cubes",
-            "capitao-saude",
             "saigo-no-shunkan"
         ]
     },
     "sideProjects": [
-        "side-project-example-1",
-        "side-project-example-2"
+        "67-bits-art-test",
+        "sally-face-game-character"
     ],
     "skills": {
         "programming": [
             "unity",
-            "csharp"
+            "csharp",
+            "gameplay-programming"
         ],
-        "3d-modeling": [
+        "art": [
             "blender",
-            "zbrush"
+            "3d-modeling"
         ],
-        "sound-design": [
+        "audio": [
             "fmod"
         ]
     }

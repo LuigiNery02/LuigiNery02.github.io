@@ -18,20 +18,18 @@ export function createProjectCard(project, technologies, areas) {
     const technologyContainer = document.createElement("div");
     technologyContainer.classList.add("project-card-technologies");
 
-    project.general.technologies.forEach(technologyId => {
-        const technology = technologies.find(
-            item => item.id === technologyId
-        );
+    const mainTechnology = project.general.technologies
+        .map(technologyId => technologies.find(item => item.id === technologyId))
+        .find(technology => technology?.icon);
 
-        if (technology?.icon) {
-            const icon = document.createElement("img");
-            icon.src = technology.icon;
-            icon.alt = technology.name;
-            icon.title = technology.name;
+    if (mainTechnology) {
+        const icon = document.createElement("img");
+        icon.src = mainTechnology.icon;
+        icon.alt = mainTechnology.name;
+        icon.title = mainTechnology.name;
 
-            technologyContainer.appendChild(icon);
-        }
-    });
+        technologyContainer.appendChild(icon);
+    }
 
     const infoContainer = document.createElement("div");
     infoContainer.classList.add("project-card-info");

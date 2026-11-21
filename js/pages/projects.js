@@ -2,9 +2,10 @@ import {
     loadProjects,
     loadTechnologies,
     loadAreas,
-    loadPlatforms
+    loadPlatforms,
+    loadSkillDefinitions
 } from "../systems/data-loader.js";
-import { getProjectAreas } from "../systems/project-data.js";
+import { getProjectAreas, getProjectSkills } from "../systems/project-data.js";
 import { createProjectCard } from "../components/project-card.js";
 import { createProjectFilter } from "../components/project-filter.js";
 import "../components/navigation.js";
@@ -55,11 +56,12 @@ async function initializeProjectsPage() {
     const emptyMessage = document.querySelector(".projects-empty");
     const collection = grid.dataset.collection;
 
-    const [projects, technologies, areas, platforms] = await Promise.all([
+    const [projects, technologies, areas, platforms, skillDefinitions] = await Promise.all([
         loadProjects(collection),
         loadTechnologies(),
         loadAreas(),
-        loadPlatforms()
+        loadPlatforms(),
+        loadSkillDefinitions()
     ]);
 
     projects.sort((a, b) => a.order - b.order);
@@ -70,6 +72,12 @@ async function initializeProjectsPage() {
             label: "Area",
             source: areas,
             getValues: project => getProjectAreas(project)
+        },
+        {
+            key: "skill",
+            label: "Skill",
+            source: skillDefinitions,
+            getValues: project => getProjectSkills(project)
         },
         {
             key: "technology",

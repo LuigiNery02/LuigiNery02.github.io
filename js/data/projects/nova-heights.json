@@ -17,7 +17,10 @@
     "genres": ["action-adventure"],
     "teamSize": 8
   },
-  "order": 1,
+  "playLinks": [
+    { "store": "itch-io", "href": "https://luiginery.itch.io/novaheights" }
+  ],
+  "order": 3,
   "details": {
     "about": [
       "[Placeholder] Nova Heights is a 2D action-adventure game developed as the final project of the Game Design course, by a team of 8 people.",
@@ -25,66 +28,310 @@
     ],
     "contributions": [
       {
-        "title": "[Placeholder] Save System",
+        "title": "Trinket System",
         "primaryArea": "programming",
         "relatedAreas": [],
+        "skills": ["gameplay-programming"],
         "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
-        "details": {
-          "aboutTheWork": {
+        "tabs": [
+          {
+            "title": "Trinket System",
             "content": [
-              "[Placeholder] Explain the **purpose** of the save system and how it fits the game.",
-              { "type": "heading", "text": "Implementation" },
-              {
-                "type": "list",
-                "ordered": false,
-                "items": [
-                  "Three independent save slots",
-                  "Encrypted save files using `AES`",
-                  "Automatic checkpoints between areas"
-                ]
-              },
-              { "type": "heading", "text": "Challenges" },
-              "[Placeholder] Describe the *main decisions* and problems you faced."
+              "[Placeholder] Explain the **purpose** of the Trinket System."
             ],
             "media": [
               {
-                "type": "image",
-                "src": "assets/projects/nova-heights/cover.png",
-                "caption": "[Placeholder] Save slot selection screen"
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem1.mp4",
+                "autoplay": true
               }
             ]
           },
-          "myRole": {
+          {
+            "title": "Extender Maximum Damage",
             "content": [
               "[Placeholder] Describe what you personally implemented in this system."
             ],
             "media": [
               {
                 "type": "video",
-                "src": "assets/website/Big_Buck_Bunny_1080_10s_5MB.mp4",
-                "caption": "[Placeholder] Save and load demonstration"
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem2.mp4",
+                "autoplay": true,
+                "caption": "Without Trinket"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem3.mp4",
+                "autoplay": true,
+                "caption": "With Trinket"
               }
             ]
           },
-          "whatILearned": {
+          {
+            "title": "Extender Maximum Health",
             "content": [
+              "[Placeholder] Describe what you personally implemented in this system."
+            ],
+            "media": [
               {
-                "type": "list",
-                "ordered": true,
-                "items": [
-                  "[Placeholder] Serializing game state safely",
-                  "[Placeholder] Versioning save files between builds"
-                ]
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem4.mp4",
+                "autoplay": true,
+                "caption": "Without Trinket"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem5.mp4",
+                "autoplay": true,
+                "caption": "With Trinket"
+              }
+            ]
+          },
+          {
+            "title": "Extender Reduce Roll Cooldown",
+            "content": [
+              "[Placeholder] Describe what you personally implemented in this system."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem6.mp4",
+                "autoplay": true,
+                "caption": "Without Trinket"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem7.mp4",
+                "autoplay": true,
+                "caption": "With Trinket"
+              }
+            ]
+          },
+          {
+            "title": "Extender Increase Speed",
+            "content": [
+              "[Placeholder] Describe what you personally implemented in this system."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem8.mp4",
+                "autoplay": true,
+                "caption": "Without Trinket"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem9.mp4",
+                "autoplay": true,
+                "caption": "With Trinket"
+              }
+            ]
+          },
+          {
+            "title": "Extender Counter Attack",
+            "content": [
+              "[Placeholder] Describe what you personally implemented in this system."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem10.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Extender Energy Reduce Cost",
+            "content": [
+              "[Placeholder] Describe what you personally implemented in this system."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem11.mp4",
+                "autoplay": true,
+                "caption": "Without Trinket"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/trinket-system/TrinketSystem12.mp4",
+                "autoplay": true,
+                "caption": "With Trinket"
               }
             ]
           }
-        }
+        ]
       },
       {
-        "title": "[Placeholder] Combat System",
+        "title": "Enemies",
         "primaryArea": "programming",
-        "relatedAreas": ["sound-design"],
-        "summary": "[Placeholder] Implemented melee combat and hooked combat events to the audio system."
+        "relatedAreas": [],
+        "skills": ["gameplay-programming"],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "tabs": [
+          {
+            "title": "Shooter",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Shooter Enemy."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/enemies/Shooter1.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Flyer",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Flyer Enemy."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/enemies/Flyer1.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Jumper",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Jumper Enemy."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/enemies/Jumper1.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Interactive Objects",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": ["gameplay-programming"],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "tabs": [
+          {
+            "title": "Interactive Objects",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Interactive Objects."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/interactive-objects/InteractiveObjects.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Collectibles",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": ["gameplay-programming"],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "tabs": [
+          {
+            "title": "Collectibles",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Interactive Objects."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/collectibles/Collectibles.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Save System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": ["gameplay-programming"],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "tabs": [
+          {
+            "title": "Save System and Checkpoint",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Interactive Objects."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/save-system/SaveSystem.mp4",
+                "autoplay": true,
+                "caption": "save system"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/save-system/Checkpoint.mp4",
+                "autoplay": true,
+                "caption": "checkpoint"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Game Settings",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": ["gameplay-programming"],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "tabs": [
+          {
+            "title": "Game Settings",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Game Settings."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/nova-heights/settings/Settings.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Audio Mixer Implementation",
+        "primaryArea": "programming",
+        "relatedAreas": [
+          "audio"
+        ],
+        "skills": [
+          "audio-programming"
+        ],
+        "summary": "[Placeholder] Implementation of Audio Mixer."
+      },
+      {
+        "title": "Music Theme",
+        "primaryArea": "audio",
+        "relatedAreas": [],
+        "skills": ["music-composition"],
+        "summary": "[Placeholder] Developed a save system with three save slots, encryption, and checkpoint support.",
+        "links": [
+          { "label": "[Placeholder] Listen to the theme", "href": "https://soundcloud.com/luiginery/where-it-all-begins-nova-heights-soundtrack?in=luiginery/sets/nova-heights-game-soundtrack" }
+        ]
+      },
+      {
+        "title": "Video Editing",
+        "primaryArea": "video-editing",
+        "relatedAreas": [],
+        "skills": [],
+        "summary": ""
       }
     ],
     "learnings": [
@@ -94,23 +341,34 @@
   },
   "gallery": [
     {
-      "type": "video",
-      "src": "assets/website/Big_Buck_Bunny_1080_10s_5MB.mp4",
+      "type": "youtube",
+      "src": "https://www.youtube.com/watch?v=PhPg7EUdfrA",
       "caption": "[Placeholder] Gameplay trailer"
     },
     {
       "type": "image",
-      "src": "assets/projects/nova-heights/cover.png",
+      "src": "assets/projects/nova-heights/screenshots/Screenshot1.png",
       "caption": "[Placeholder] Screenshot 1"
     },
     {
       "type": "image",
-      "src": "assets/projects/nova-heights/cover.png",
+      "src": "assets/projects/nova-heights/screenshots/Screenshot2.png",
       "caption": "[Placeholder] Screenshot 2"
     },
     {
       "type": "image",
-      "src": "assets/projects/nova-heights/cover.png"
+      "src": "assets/projects/nova-heights/screenshots/Screenshot3.png",
+      "caption": "[Placeholder] Screenshot 3"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/nova-heights/screenshots/Screenshot4.png",
+      "caption": "[Placeholder] Screenshot 4"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/nova-heights/screenshots/Screenshot5.png",
+      "caption": "[Placeholder] Screenshot 5"
     }
   ]
 }

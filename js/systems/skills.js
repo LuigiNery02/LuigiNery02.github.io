@@ -1,4 +1,5 @@
-import { loadProjects, loadTechnologies } from "./data-loader.js";
+import { loadProjects, loadTechnologies, loadSkillDefinitions } from "./data-loader.js";
+import { getProjectSkills } from "./project-data.js";
 
 export function calculateProgress(projectCount, config) {
     const increase = Math.max(0, config.increasePerLevel ?? 0);
@@ -25,34 +26,50 @@ export function calculateProgress(projectCount, config) {
     };
 }
 
-export function buildSkills(technologies, projects) {
-    return [...technologies]
+function buildEntries(items, kind, getProjectIds, projects) {
+    return [...items]
         .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-        .map(technology => {
-            const enabled = technology.skill?.enabled === true;
+        .map(item => {
+            const enabled = item.xp?.enabled === true;
 
-            if (!enabled) {
-                return { technology, enabled, progress: null };
+            const entry = {
+                id: item.id,
+                kind,
+                name: item.name,
+                icon: item.icon ?? null,
+                category: item.category ?? null,
+                area: item.area,
+                subarea: item.subarea ?? null,
+                enabled,
+                progress: null
+            };
+
+            if (enabled) {
+                const projectCount = projects.filter(project =>
+                    getProjectIds(project).includes(item.id)
+                ).length;
+
+                entry.progress = calculateProgress(projectCount, item.xp);
             }
 
-            const projectCount = projects.filter(project =>
-                new Set(project.general.technologies).has(technology.id)
-            ).length;
-
-            return {
-                technology,
-                enabled,
-                progress: calculateProgress(projectCount, technology.skill)
-            };
+            return entry;
         });
 }
 
+export function buildSkills(technologies, skillDefinitions, projects) {
+    return [
+        ...buildEntries(technologies, "technology", project => project.general.technologies, projects),
+        ...buildEntries(skillDefinitions, "skill", getProjectSkills, projects)
+    ];
+}
+
 export async function loadSkills() {
-    const [technologies, projects, sideProjects] = await Promise.all([
+    const [technologies, skillDefinitions, projects, sideProjects] = await Promise.all([
         loadTechnologies(),
+        loadSkillDefinitions(),
         loadProjects("projects"),
         loadProjects("side-projects")
     ]);
 
-    return buildSkills(technologies, [...projects, ...sideProjects]);
+    return buildSkills(technologies, skillDefinitions, [...projects, ...sideProjects]);
 }

@@ -1,0 +1,219 @@
+{
+  "id": "afk-game-vertical-slice",
+  "title": "AFK Game (Vertical Slice)",
+  "cover": "assets/projects/afk-game-vertical-slice/cover.png",
+  "classification": {
+    "type": "professional",
+    "subtype": "freelance"
+  },
+  "organization": {
+    "name": "New Art Studio"
+  },
+  "general": {
+    "year": 2026,
+    "status": "abandoned",
+    "technologies": [
+      "unity",
+      "csharp"
+    ],
+    "platforms": [
+      "pc"
+    ],
+    "genres": [
+      "strategy"
+    ],
+    "teamSize": 1
+  },
+  "order": 2,
+  "details": {
+    "about": [
+      "[Placeholder] Legion Setup: Auto Battle is a 3D strategy RPG developed as a freelance project for New Art Studio, by a team of 4 people.",
+      "[Placeholder] Describe here the premise of the game, its main mechanics and what makes it unique."
+    ],
+    "contributions": [
+      {
+        "title": "[Placeholder] Character System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "summary": "[Placeholder] Developed a character system.",
+        "tabs": [
+          {
+            "title": "Character Creation",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the character creation."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/character-system/CharacterSystem1.mp4",
+                "autoplay": true
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/character-system/CharacterSystem2.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Combat System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "summary": "[Placeholder] Developed a combat system.",
+        "tabs": [
+          {
+            "title": "Character Battle Selection",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the character battle selection."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/combat-system/CombatSystem1.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Character AI",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Character AI.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Enemy Target Selection",
+                  "Character Movement System",
+                  "Attack Range"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/combat-system/CombatSystem2.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Damage System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Damage System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Esquivar"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/combat-system/CombatSystem3.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Skills",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Skills.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/combat-system/CombatSystem4.mp4",
+                "autoplay": true
+              }
+            ]
+          },
+          {
+            "title": "Character's Info",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Character's Info.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/combat-system/CombatSystem5.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] AFK System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "summary": "[Placeholder] Developed a AFK system.",
+        "tabs": [
+          {
+            "title": "AFK System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the AFK System."
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/afk-game-vertical-slice/afk-system/AFKSystem.mp4",
+                "autoplay": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "learnings": [
+      "[Placeholder] Working with version control in a team of 8 people.",
+      "[Placeholder] Structuring gameplay code to be reused across levels."
+    ]
+  },
+  "gallery": [
+    {
+      "type": "video",
+      "src": "assets/projects/afk-game-vertical-slice/AFKGameVerticalSliceGameplay.mp4"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/afk-game-vertical-slice/screenshots/Screenshot1.png",
+      "caption": "[Placeholder] Screenshot 1"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/afk-game-vertical-slice/screenshots/Screenshot2.png",
+      "caption": "[Placeholder] Screenshot 2"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/afk-game-vertical-slice/screenshots/Screenshot3.png",
+      "caption": "[Placeholder] Screenshot 3"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/afk-game-vertical-slice/screenshots/Screenshot4.png",
+      "caption": "[Placeholder] Screenshot 4"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/afk-game-vertical-slice/screenshots/Screenshot5.png",
+      "caption": "[Placeholder] Screenshot 5"
+    }
+  ]
+}

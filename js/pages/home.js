@@ -7,7 +7,7 @@ import {
 } from "../systems/data-loader.js";
 import { loadSkills } from "../systems/skills.js";
 import { createProjectCard } from "../components/project-card.js";
-import { createSkillCard } from "../components/skill-card.js";
+import { createSkillCard, getSkillLabel } from "../components/skill-card.js";
 import { createExperienceTimeline } from "../components/experience-timeline.js";
 import "../components/navigation.js";
 import "../systems/particles.js";
@@ -48,9 +48,14 @@ function renderSkillsOverview(container, selection, skills, areas) {
         .sort((a, b) => a.order - b.order)
         .forEach(area => {
             (selection[area.id] ?? [])
-                .map(id => skills.find(skill => skill.technology.id === id))
+                .map(id => skills.find(skill => skill.id === id))
                 .filter(Boolean)
-                .forEach(skill => container.appendChild(createSkillCard(skill, area)));
+                .forEach(skill => {
+                    const skillArea = areas.find(item => item.id === skill.area) ?? area;
+                    container.appendChild(
+                        createSkillCard(skill, { area: skillArea, label: getSkillLabel(skill, skillArea) })
+                    );
+                });
         });
 }
 

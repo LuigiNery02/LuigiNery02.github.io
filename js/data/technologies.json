@@ -6,7 +6,49 @@
         "area": "programming",
         "icon": "assets/icons/unity.svg",
         "order": 1,
-        "skill": {
+        "xp": {
+            "enabled": true,
+            "initialProjects": 1,
+            "baseProjectsPerLevel": 2,
+            "increasePerLevel": 1
+        }
+    },
+    {
+        "id": "csharp",
+        "name": "C#",
+        "category": "language programming",
+        "area": "programming",
+        "icon": "assets/icons/csharp.svg",
+        "order": 2,
+        "xp": {
+            "enabled": true,
+            "initialProjects": 1,
+            "baseProjectsPerLevel": 2,
+            "increasePerLevel": 1
+        }
+    },
+    {
+        "id": "blender",
+        "name": "Blender",
+        "category": "software",
+        "area": "art",
+        "icon": "assets/icons/blender.svg",
+        "order": 3,
+        "xp": {
+            "enabled": true,
+            "initialProjects": 1,
+            "baseProjectsPerLevel": 2,
+            "increasePerLevel": 1
+        }
+    },
+    {
+        "id": "substance-painter",
+        "name": "Substance Painter",
+        "category": "software",
+        "area": "art",
+        "icon": "assets/icons/substance-painter.svg",
+        "order": 4,
+        "xp": {
             "enabled": true,
             "initialProjects": 1,
             "baseProjectsPerLevel": 2,
@@ -17,9 +59,9 @@
         "id": "fmod",
         "name": "FMOD",
         "category": "tool",
-        "area": "sound-design",
-        "order": 2,
-        "skill": {
+        "area": "audio",
+        "order": 5,
+        "xp": {
             "enabled": false
         }
     }

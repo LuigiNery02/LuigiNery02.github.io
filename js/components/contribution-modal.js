@@ -1,26 +1,12 @@
 import { renderRichContent } from "../systems/rich-text.js";
 import { createAreaTag } from "./area-tag.js";
 import { createStepNavigation } from "./step-navigation.js";
-
-const TABS = [
-    { key: "aboutTheWork", label: "About the Work" },
-    { key: "myRole", label: "My Role" },
-    { key: "whatILearned", label: "What I Learned" }
-];
+import { createYouTubeEmbed } from "../systems/youtube.js";
 
 export function getContributionTabs(contribution) {
-    const details = contribution.details;
-
-    if (!details) {
-        return [];
-    }
-
-    return TABS
-        .filter(tab => {
-            const section = details[tab.key];
-            return section && ((section.content?.length ?? 0) > 0 || (section.media?.length ?? 0) > 0);
-        })
-        .map(tab => ({ ...tab, ...details[tab.key] }));
+    return (contribution.tabs ?? [])
+        .filter(tab => (tab.content?.length ?? 0) > 0 || (tab.media?.length ?? 0) > 0)
+        .map((tab, index) => ({ ...tab, label: tab.title || `Part ${index + 1}` }));
 }
 
 function createElement(tag, className, text) {
@@ -52,12 +38,26 @@ function createIconButton(className, label, icon) {
 function createMedia(item) {
     const figure = createElement("figure", "contribution-media-item");
 
-    if (item.type === "video") {
+    if (item.type === "youtube") {
+        const embed = createYouTubeEmbed(item);
+
+        if (embed) {
+            figure.appendChild(embed);
+        }
+    } else if (item.type === "video") {
         const video = createElement("video");
         video.src = item.src;
-        video.controls = true;
-        video.preload = "metadata";
         video.playsInline = true;
+
+        if (item.autoplay) {
+            video.muted = true;
+            video.loop = true;
+            video.autoplay = true;
+            video.preload = "auto";
+        } else {
+            video.controls = true;
+            video.preload = "metadata";
+        }
 
         if (item.poster) {
             video.poster = item.poster;

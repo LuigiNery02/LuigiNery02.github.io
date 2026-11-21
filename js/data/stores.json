@@ -1,0 +1,10 @@
+[
+  { "id": "itch-io", "name": "itch.io", "icon": "fa-brands fa-itch-io" },
+  { "id": "steam", "name": "Steam", "icon": "fa-brands fa-steam" },
+  { "id": "google-play", "name": "Google Play", "icon": "fa-brands fa-google-play" },
+  { "id": "app-store", "name": "App Store", "icon": "fa-brands fa-app-store-ios" },
+  { "id": "game-jolt", "name": "Game Jolt", "icon": "fa-solid fa-gamepad" },
+  { "id": "github", "name": "GitHub", "icon": "fa-brands fa-github" },
+  { "id": "browser", "name": "Browser", "icon": "fa-solid fa-globe" },
+  { "id": "download", "name": "Download", "icon": "fa-solid fa-download" }
+]

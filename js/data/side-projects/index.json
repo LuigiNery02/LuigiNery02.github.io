@@ -1,10 +1,14 @@
 [
   {
-    "id": "side-project-example-1",
+    "id": "67-bits-art-test",
     "order": 1
   },
   {
-    "id": "side-project-example-2",
+    "id": "sally-face-game-character",
     "order": 2
+  },
+  {
+    "id": "gatinhos-travessos-edopro-mod",
+    "order": 3
   }
 ]

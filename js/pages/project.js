@@ -4,9 +4,12 @@ import {
     loadTechnologies,
     loadAreas,
     loadPlatforms,
-    loadGenres
+    loadGenres,
+    loadSkillDefinitions,
+    loadStores
 } from "../systems/data-loader.js";
-import { getProjectAreas } from "../systems/project-data.js";
+import { isSafeUrl, isExternalUrl } from "../systems/rich-text.js";
+import { getProjectAreas, getProjectSkills } from "../systems/project-data.js";
 import { renderRichContent, formatInline } from "../systems/rich-text.js";
 import { createGallery } from "../components/gallery.js";
 import { createAreaTag } from "../components/area-tag.js";
@@ -49,8 +52,13 @@ function renderHeading(project) {
     document.querySelector(".project-title").textContent = project.title;
 
     const meta = document.querySelector(".project-meta");
+    const classification = [project.classification.type, project.classification.subtype]
+        .filter(Boolean)
+        .map(value => value.replace(/-/g, " "))
+        .join(" · ");
+
     meta.appendChild(
-        createElement("span", "project-type", project.classification.type)
+        createElement("span", "project-type", classification)
     );
 
     if (project.organization?.name) {
@@ -58,6 +66,36 @@ function renderHeading(project) {
             createElement("span", "project-organization", project.organization.name)
         );
     }
+}
+
+function renderPlayLinks(project, stores) {
+    const links = (project.playLinks ?? []).filter(link => isSafeUrl(link.href));
+
+    if (links.length === 0) {
+        return;
+    }
+
+    const container = document.querySelector(".project-play");
+
+    links.forEach(link => {
+        const store = findById(stores, link.store);
+        const anchor = createElement("a", "project-play-link");
+        anchor.href = link.href;
+
+        if (isExternalUrl(link.href)) {
+            anchor.target = "_blank";
+            anchor.rel = "noopener noreferrer";
+        }
+
+        const icon = createElement("i", store?.icon ?? "fa-solid fa-gamepad");
+        icon.setAttribute("aria-hidden", "true");
+
+        const label = link.label ?? (store ? `Play on ${store.name}` : "Play");
+        anchor.append(icon, document.createTextNode(label));
+        container.appendChild(anchor);
+    });
+
+    container.hidden = false;
 }
 
 function renderAbout(project) {
@@ -71,7 +109,7 @@ function renderAbout(project) {
     showSection("about");
 }
 
-function renderContributions(project, areas) {
+function renderContributions(project, areas, skillDefinitions) {
     const contributions = project.details.contributions;
 
     if (contributions.length === 0) {
@@ -80,7 +118,7 @@ function renderContributions(project, areas) {
 
     document
         .querySelector(".project-contributions")
-        .appendChild(createContributionList(contributions, areas));
+        .appendChild(createContributionList(contributions, areas, skillDefinitions));
 
     showSection("contributions");
 }
@@ -150,6 +188,16 @@ function renderInfo(project, data) {
         addInfoRow(list, "Genres", genres.join(", "));
     }
 
+    const areas = getProjectAreas(project)
+        .map(id => findById(data.areas, id))
+        .filter(Boolean);
+
+    if (areas.length > 0) {
+        const container = createElement("div", "project-areas");
+        areas.forEach(area => container.appendChild(createAreaTag(area)));
+        addInfoRow(list, "Areas", container);
+    }
+
     const technologies = general.technologies
         .map(id => findById(data.technologies, id))
         .filter(Boolean);
@@ -174,14 +222,12 @@ function renderInfo(project, data) {
         addInfoRow(list, "Technologies", container);
     }
 
-    const areas = getProjectAreas(project)
-        .map(id => findById(data.areas, id))
+    const skills = getProjectSkills(project)
+        .map(id => findById(data.skillDefinitions, id))
         .filter(Boolean);
 
-    if (areas.length > 0) {
-        const container = createElement("div", "project-areas");
-        areas.forEach(area => container.appendChild(createAreaTag(area)));
-        addInfoRow(list, "Areas", container);
+    if (skills.length > 0) {
+        addInfoRow(list, "Skills", skills.map(skill => skill.name).join(", "));
     }
 }
 
@@ -214,21 +260,24 @@ async function initializeProjectPage() {
         return;
     }
 
-    const [technologies, areas, platforms, genres] = await Promise.all([
+    const [technologies, areas, platforms, genres, skillDefinitions, stores] = await Promise.all([
         loadTechnologies(),
         loadAreas(),
         loadPlatforms(),
-        loadGenres()
+        loadGenres(),
+        loadSkillDefinitions(),
+        loadStores()
     ]);
 
     document.title = `${project.title} | Luigi Nery Portfolio`;
 
     renderHeading(project);
+    renderPlayLinks(project, stores);
     renderAbout(project);
-    renderContributions(project, areas);
+    renderContributions(project, areas, skillDefinitions);
     renderLearnings(project);
     renderGallery(project);
-    renderInfo(project, { technologies, areas, platforms, genres });
+    renderInfo(project, { technologies, areas, platforms, genres, skillDefinitions });
 
     document.querySelector(".project-body").hidden = false;
 }

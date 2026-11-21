@@ -1,7 +1,10 @@
 const AREAS_URL = new URL("../data/areas.json", import.meta.url);
+const AREA_GROUPS_URL = new URL("../data/area-groups.json", import.meta.url);
+const SKILL_DEFINITIONS_URL = new URL("../data/skills.json", import.meta.url);
 const TECHNOLOGIES_URL = new URL("../data/technologies.json", import.meta.url);
 const PLATFORMS_URL = new URL("../data/platforms.json", import.meta.url);
 const GENRES_URL = new URL("../data/genres.json", import.meta.url);
+const STORES_URL = new URL("../data/stores.json", import.meta.url);
 const PROJECTS_INDEX_URL = new URL("../data/projects/index.json", import.meta.url);
 const SIDE_PROJECTS_INDEX_URL = new URL("../data/side-projects/index.json", import.meta.url);
 const SITE_CONTENT_URL = new URL("../data/site-content.json", import.meta.url);
@@ -33,6 +36,14 @@ export function loadAreas() {
     return fetchJson(AREAS_URL, "areas");
 }
 
+export function loadAreaGroups() {
+    return fetchJson(AREA_GROUPS_URL, "area groups");
+}
+
+export function loadSkillDefinitions() {
+    return fetchJson(SKILL_DEFINITIONS_URL, "skills");
+}
+
 export function loadTechnologies() {
     return fetchJson(TECHNOLOGIES_URL, "technologies");
 }
@@ -43,6 +54,10 @@ export function loadPlatforms() {
 
 export function loadGenres() {
     return fetchJson(GENRES_URL, "genres");
+}
+
+export function loadStores() {
+    return fetchJson(STORES_URL, "stores");
 }
 
 export function loadProjectsIndex() {
@@ -95,11 +110,20 @@ export async function loadProjects(collection) {
         throw new Error(`Invalid collection: ${collection}`);
     }
 
-    const projects = await Promise.all(
+    const results = await Promise.allSettled(
         index.map(item => fetchProject(collection, item.id))
     );
 
-    return projects;
+    return results
+        .filter((result, position) => {
+            if (result.status === "rejected") {
+                console.warn(`Skipping "${index[position].id}" from ${collection}: ${result.reason.message}`);
+                return false;
+            }
+
+            return true;
+        })
+        .map(result => result.value);
 }
 
 export function loadSiteContent() {

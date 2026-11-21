@@ -1,0 +1,725 @@
+{
+  "id": "legion-setup-auto-battle",
+  "title": "Legion Setup: Auto Battle",
+  "cover": "assets/projects/legion-setup-auto-battle/cover.jpg",
+  "classification": {
+    "type": "professional",
+    "subtype": "freelance"
+  },
+  "organization": {
+    "name": "New Art Studio"
+  },
+  "general": {
+    "year": 2026,
+    "status": "abandoned",
+    "technologies": [
+      "unity",
+      "csharp",
+      "blender",
+      "substance-painter"
+    ],
+    "platforms": [
+      "pc"
+    ],
+    "genres": [
+      "strategy"
+    ],
+    "teamSize": 4
+  },
+  "order": 1,
+  "details": {
+    "about": [
+      "[Placeholder] Legion Setup: Auto Battle is a 3D strategy RPG developed as a freelance project for New Art Studio, by a team of 4 people.",
+      "[Placeholder] Describe here the premise of the game, its main mechanics and what makes it unique."
+    ],
+    "contributions": [
+      {
+        "title": "Combat System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a combat system.",
+        "tabs": [
+          {
+            "title": "Character AI",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Character AI.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Enemy Target Selection",
+                  "Character Navigation",
+                  "Character Movement System",
+                  "Attack Range"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/combat-system/CharacterAI1.mp4",
+                "autoplay": true,
+                "caption": "Enemy Target Selection and Character Navigation"
+              }
+            ]
+          },
+          {
+            "title": "Stamina System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Stamina System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/combat-system/StaminaSystem1.mp4",
+                "autoplay": true,
+                "caption": "Attack with Stamina System"
+              }
+            ]
+          },
+          {
+            "title": "Damage System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Damage System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Damage",
+                  "Shield and Penetration",
+                  "Floating Text"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/combat-system/DamageSystem1.mp4",
+                "autoplay": true,
+                "caption": "Damage System"
+              }
+            ]
+          },
+          {
+            "title": "Fatigue System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Fatigue System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/combat-system/FatigueSystem1.mp4",
+                "autoplay": true,
+                "caption": "Fatigue System"
+              }
+            ]
+          },
+          {
+            "title": "Battle Speed System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Battle Speed System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/combat-system/BattleSpeedSystem1.mp4",
+                "autoplay": true,
+                "caption": "Fatigue System"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Item Effect System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a Item Effect System",
+        "tabs": [
+          {
+            "title": "Item Effect System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Item Effect System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Item Effect System"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/item-effect-system/ItemEffectSystem1.mp4",
+                "autoplay": true,
+                "caption": "Item Effect System"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Character System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a Character System",
+        "tabs": [
+          {
+            "title": "Character Data System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Character Data System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Character Data System"
+              }
+            ],
+            "media": [
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/character-data-system/CharacterSystem1.png",
+                "autoplay": true,
+                "caption": "Character Data System"
+              }
+            ]
+          },
+          {
+            "title": "Character Skin Controller",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Character Skin Controller.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Character Skin Controller"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/character-data-system/CharacterSystem2.mp4",
+                "autoplay": true
+              },
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/character-data-system/CharacterSystem3.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Battle Audio System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a Battle Audio System",
+        "tabs": [
+          {
+            "title": "Battle Audio System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Battle Audio System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "AttackSound",
+                  "DamageSound",
+                  "DeathSound",
+                  "Heal",
+                  "MissAttackSound"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/battle-audio-system/BattleAudioSystem1.mp4"
+              },
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/battle-audio-system/BattleAudioSystem2.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Status Effect System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a Status Effect System",
+        "tabs": [
+          {
+            "title": "Status Effect System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Status Effect System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Status Effect System"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/status-effect-system/StatusEffectSystem1.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] Status Effect System"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Battle Feedback System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a Battle Feedback System",
+        "tabs": [
+          {
+            "title": "Battle Feedback System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Battle Feedback System.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Camera Shake",
+                  "Camera Zoom",
+                  "VFX",
+                  "SFX",
+                  "Floating Text",
+                  "UI Update",
+                  "Object Pool",
+                  "Weapon Trail"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/battle-feedback-system/BattleFeedbackSystem1.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] Battle Feedback System"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Data-Driven Item & Effect Architecture",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming",
+          "systems-programming"
+        ],
+        "summary": "[Placeholder] Developed a Data-Driven Item & Effect Architecture",
+        "tabs": [
+          {
+            "title": "Data-Driven Item & Effect Architecture",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Data-Driven Item & Effect Architecture.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Data-Driven Item & Effect Architecture"
+              }
+            ],
+            "media": [
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/data-driven-system/DataDrivenSystem1.png",
+                "caption": "[Placeholder] Data-Driven Item & Effect Architecture"
+              },
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/data-driven-system/DataDrivenSystem2.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] Data-Driven Item & Effect Architecture"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Store System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a store system.",
+        "tabs": [
+          {
+            "title": "Store System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the store system.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Reload",
+                  "Items",
+                  "Class",
+                  "Item Rarity"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/store-system/StoreSystem1.mp4",
+                "autoplay": true,
+                "caption": "Store System"
+              },
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/store-system/StoreSystem2.png"
+              },
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/store-system/StoreSystem3.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Equipment System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a equipment system.",
+        "tabs": [
+          {
+            "title": "Equipment System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the equipment system.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  "Class",
+                  "Items",
+                  "Skills"
+                ]
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/equipment-system/EquipmentSystem.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] store system"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Tooltip System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a tooltip system.",
+        "tabs": [
+          {
+            "title": "Tooltip System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the tooltip system.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/tooltip-system/TooltipSystem.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] store system"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Forging System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a forging system.",
+        "tabs": [
+          {
+            "title": "Forging System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the forging system.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Forging System"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/forging-system/ForgingSystem.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] store system"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "[Placeholder] Grid System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a grid system.",
+        "tabs": [
+          {
+            "title": "Grid System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the grid system.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Grid System"
+              }
+            ],
+            "media": [
+              {
+                "type": "video",
+                "src": "assets/projects/legion-setup-auto-battle/grid-system/GridSystem.mp4",
+                "autoplay": true,
+                "caption": "[Placeholder] store system"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Round System",
+        "primaryArea": "programming",
+        "relatedAreas": [],
+        "skills": [
+          "gameplay-programming"
+        ],
+        "summary": "[Placeholder] Developed a Round system.",
+        "tabs": [
+          {
+            "title": "Round System",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Round system.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              }
+            ],
+            "media": [
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/round-system/RoundSystem.png",
+                "autoplay": true,
+                "caption": "Round System"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Game Assembly & Integration",
+        "primaryArea": "programming",
+        "relatedAreas": [
+          "game-design",
+          "art",
+          "audio"
+        ],
+        "skills": [
+          "engine-integration"
+        ],
+        "summary": "Responsible for assembling and integrating the game's components in Unity."
+      },
+      {
+        "title": "Audio Mixer Implementation",
+        "primaryArea": "programming",
+        "relatedAreas": [
+          "audio"
+        ],
+        "skills": [
+          "audio-programming"
+        ],
+        "summary": "[Placeholder] Implementation of Audio Mixer."
+      },
+      {
+        "title": "Battle Arena",
+        "primaryArea": "art",
+        "relatedAreas": [],
+        "skills": [
+          "modeling",
+          "texturing"
+        ],
+        "summary": "[Placeholder] Created Battle Arena.",
+        "tabs": [
+          {
+            "title": "Battle Arena",
+            "content": [
+              "[Placeholder] Explain the **purpose** of the Battle Arena.",
+              {
+                "type": "heading",
+                "text": "Implementation"
+              },
+              {
+                "text": "Battle Arena"
+              }
+            ],
+            "media": [
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/battle-arena/BattleArena1.png"
+              },
+              {
+                "type": "image",
+                "src": "assets/projects/legion-setup-auto-battle/battle-arena/BattleArena2.png"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Lightning Setup",
+        "primaryArea": "art",
+        "relatedAreas": [
+          ""
+        ],
+        "skills": [
+          ""
+        ],
+        "summary": "Lightning Setup."
+      },
+      {
+        "title": "Post-Processing Setup",
+        "primaryArea": "art",
+        "relatedAreas": [
+          ""
+        ],
+        "skills": [
+          ""
+        ],
+        "summary": "Post-Processing Setup"
+      }
+    ],
+    "learnings": [
+      "[Placeholder] Working with version control in a team of 8 people.",
+      "[Placeholder] Structuring gameplay code to be reused across levels."
+    ]
+  },
+  "gallery": [
+    {
+      "type": "youtube",
+      "src": "https://youtu.be/SVll1e44tSo",
+      "caption": "[Placeholder] Gameplay"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/legion-setup-auto-battle/screenshot/Screenshot1.png",
+      "caption": "[Placeholder] Screenshot 1"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/legion-setup-auto-battle/screenshot/Screenshot2.png",
+      "caption": "[Placeholder] Screenshot 2"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/legion-setup-auto-battle/screenshot/Screenshot3.png",
+      "caption": "[Placeholder] Screenshot 3"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/legion-setup-auto-battle/screenshot/Screenshot4.png",
+      "caption": "[Placeholder] Screenshot 3"
+    },
+    {
+      "type": "image",
+      "src": "assets/projects/legion-setup-auto-battle/screenshot/Screenshot5.png",
+      "caption": "[Placeholder] Screenshot 3"
+    }
+  ]
+}

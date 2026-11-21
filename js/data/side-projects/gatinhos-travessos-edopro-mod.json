@@ -1,0 +1,37 @@
+{
+  "id": "gatinhos-travessos-edopro-mod",
+  "title": "Gatinhos Travessos (MOD EdroPRO)",
+  "cover": "assets/projects/nova-heights/cover.png",
+  "classification": {
+    "type": "personal",
+    "subtype": ""
+  },
+  "organization": {
+    "name": ""
+  },
+  "general": {
+    "year": 2025,
+    "status": "completed",
+    "technologies": ["unity"],
+    "platforms": ["pc"],
+    "teamSize": 1
+  },
+  "order": 3,
+  "details": {
+    "about": [
+      "[Placeholder] A collection of low poly props modeled for practice and reused in prototypes."
+    ],
+    "contributions": [
+      {
+        "title": "[Placeholder] Modeling and UV Mapping",
+        "primaryArea": "3d-modeling",
+        "relatedAreas": [],
+        "summary": "[Placeholder] Modeled and unwrapped a set of low poly props."
+      }
+    ],
+    "learnings": [
+      "[Placeholder] Keeping a consistent style across many small assets."
+    ]
+  },
+  "gallery": []
+}

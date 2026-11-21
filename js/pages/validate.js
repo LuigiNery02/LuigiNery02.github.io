@@ -1,19 +1,23 @@
 import {
     loadAreas,
+    loadAreaGroups,
+    loadSkillDefinitions,
     loadTechnologies,
     loadPlatforms,
     loadGenres,
+    loadStores,
     loadProjectsIndex,
     loadSideProjectsIndex,
     loadSiteContent,
     loadExperience,
     loadAbout
 } from "../systems/data-loader.js";
+import { getYouTubeId } from "../systems/youtube.js";
+import { isSafeUrl } from "../systems/rich-text.js";
 
 const problems = [];
 const fileChecks = [];
 
-const CONTRIBUTION_TABS = ["aboutTheWork", "myRole", "whatILearned"];
 const MEDIA_TYPES = ["image", "video"];
 const MONTH_PATTERN = /^\d{4}-(0[1-9]|1[0-2])$/;
 const COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
@@ -74,8 +78,32 @@ function checkMedia(file, items, description) {
     items.forEach((item, index) => {
         const label = `${description} #${index + 1}`;
 
+        if (item.type === "youtube") {
+            if (!getYouTubeId(item.src)) {
+                error(file, `${label}: "${item.src}" is not a valid YouTube link.`);
+            }
+
+            if (item.autoplay || item.poster) {
+                warning(file, `${label}: "autoplay" and "poster" do not work on YouTube videos.`);
+            }
+
+            return;
+        }
+
         if (!MEDIA_TYPES.includes(item.type)) {
-            error(file, `${label}: "type" must be "image" or "video".`);
+            error(file, `${label}: "type" must be "image", "video" or "youtube".`);
+        } else if (isText(item.src)) {
+            const isVideoFile = /\.(mp4|webm|mov|ogv)$/i.test(item.src);
+
+            if (isVideoFile && item.type !== "video") {
+                error(file, `${label}: "${item.src}" is a video file, so "type" must be "video".`);
+            } else if (!isVideoFile && item.type === "video") {
+                error(file, `${label}: "${item.src}" is not a video file, so "type" must be "image".`);
+            }
+        }
+
+        if (item.autoplay && item.type !== "video") {
+            warning(file, `${label}: "autoplay" only works on videos.`);
         }
 
         checkFile(file, item.src, label);
@@ -86,7 +114,7 @@ function checkMedia(file, items, description) {
     });
 }
 
-function checkContribution(file, contribution, index, areas) {
+function checkContribution(file, contribution, index, areas, skillDefinitions) {
     const label = `Contribution #${index + 1}${contribution.title ? ` ("${contribution.title}")` : ""}`;
 
     if (!isText(contribution.title)) {
@@ -101,24 +129,62 @@ function checkContribution(file, contribution, index, areas) {
         checkReferences(file, contribution.relatedAreas, areas, `${label} relatedAreas`);
     }
 
+    if (contribution.skills) {
+        checkReferences(file, contribution.skills, skillDefinitions, `${label} skills (skills.json)`);
+    }
+
+    if (contribution.links !== undefined) {
+        if (!Array.isArray(contribution.links)) {
+            error(file, `${label}: "links" must be a list.`);
+        } else {
+            contribution.links.forEach((link, linkIndex) => {
+                const linkLabel = `${label} link #${linkIndex + 1}`;
+
+                if (!isText(link.label)) {
+                    error(file, `${linkLabel}: "label" is required.`);
+                }
+
+                if (!isSafeUrl(link.href)) {
+                    error(file, `${linkLabel}: "href" must start with https://, mailto: or be a page of the site (e.g. project.html?id=...).`);
+                } else if (/example\.com/i.test(link.href)) {
+                    report("info", file, `${linkLabel}: placeholder URL "${link.href}".`);
+                }
+            });
+        }
+    }
+
     if (!isText(contribution.summary)) {
         warning(file, `${label}: "summary" is empty.`);
     }
 
     if (contribution.details) {
-        Object.keys(contribution.details).forEach(key => {
-            if (!CONTRIBUTION_TABS.includes(key)) {
-                warning(file, `${label}: unknown details tab "${key}" (valid: ${CONTRIBUTION_TABS.join(", ")}).`);
-            }
-        });
+        error(file, `${label}: "details" is the old format. Use "tabs": [{ "title": "...", "content": [...], "media": [...] }].`);
+    }
 
-        CONTRIBUTION_TABS.forEach(key => {
-            const tab = contribution.details[key];
+    if (contribution.tabs !== undefined) {
+        if (!Array.isArray(contribution.tabs)) {
+            error(file, `${label}: "tabs" must be a list.`);
+        } else {
+            contribution.tabs.forEach((tab, tabIndex) => {
+                const tabLabel = `${label} tab #${tabIndex + 1}`;
 
-            if (tab?.media) {
-                checkMedia(file, tab.media, `${label} ${key} media`);
-            }
-        });
+                if (!isText(tab.title)) {
+                    error(file, `${tabLabel}: "title" is required.`);
+                }
+
+                if (tab.content !== undefined && !Array.isArray(tab.content)) {
+                    error(file, `${tabLabel}: "content" must be a list.`);
+                }
+
+                if (!(tab.content?.length > 0) && !(tab.media?.length > 0)) {
+                    warning(file, `${tabLabel}: has no content or media and will be hidden.`);
+                }
+
+                if (tab.media) {
+                    checkMedia(file, tab.media, `${tabLabel} media`);
+                }
+            });
+        }
     }
 }
 
@@ -162,6 +228,26 @@ function checkProject(file, project, indexEntry, collection, data) {
         }
     }
 
+    if (project.playLinks !== undefined) {
+        if (!Array.isArray(project.playLinks)) {
+            error(file, `"playLinks" must be a list.`);
+        } else {
+            project.playLinks.forEach((link, index) => {
+                const label = `Play link #${index + 1}`;
+
+                if (!data.stores.some(store => store.id === link.store)) {
+                    warning(file, `${label}: store "${link.store}" does not exist in stores.json (a generic icon will be used).`);
+                }
+
+                if (!isSafeUrl(link.href)) {
+                    error(file, `${label}: "href" must start with https:// or be a file of the site.`);
+                } else if (/example\.com/i.test(link.href)) {
+                    report("info", file, `${label}: placeholder URL "${link.href}".`);
+                }
+            });
+        }
+    }
+
     if (typeof project.order !== "number") {
         error(file, `"order" must be a number.`);
     } else if (project.order !== indexEntry.order) {
@@ -177,7 +263,7 @@ function checkProject(file, project, indexEntry, collection, data) {
     });
 
     (details.contributions ?? []).forEach((contribution, index) => {
-        checkContribution(file, contribution, index, data.areas);
+        checkContribution(file, contribution, index, data.areas, data.skillDefinitions);
     });
 
     if (!Array.isArray(project.gallery)) {
@@ -245,21 +331,60 @@ function checkTechnologies(technologies, areas) {
             checkFile(file, technology.icon, `${label} icon`);
         }
 
-        const skill = technology.skill;
-
-        if (!skill || typeof skill.enabled !== "boolean") {
-            error(file, `${label}: "skill.enabled" must be true or false.`);
-        } else if (skill.enabled) {
-            ["initialProjects", "baseProjectsPerLevel", "increasePerLevel"].forEach(key => {
-                if (typeof skill[key] !== "number") {
-                    error(file, `${label}: "skill.${key}" must be a number when XP is enabled.`);
-                }
-            });
-        }
+        checkXp(file, label, technology.xp);
     });
 }
 
-function checkAreas(areas) {
+function checkXp(file, label, xp) {
+    if (!xp || typeof xp.enabled !== "boolean") {
+        error(file, `${label}: "xp.enabled" must be true or false.`);
+    } else if (xp.enabled) {
+        ["initialProjects", "baseProjectsPerLevel", "increasePerLevel"].forEach(key => {
+            if (typeof xp[key] !== "number") {
+                error(file, `${label}: "xp.${key}" must be a number when XP is enabled.`);
+            }
+        });
+    }
+}
+
+function checkSkillDefinitions(skillDefinitions, areas, technologies) {
+    const file = "js/data/skills.json";
+    const ids = new Set();
+
+    skillDefinitions.forEach(skill => {
+        const label = `Skill "${skill.id}"`;
+
+        if (ids.has(skill.id)) {
+            error(file, `Duplicated id "${skill.id}".`);
+        }
+
+        ids.add(skill.id);
+
+        if (technologies.some(technology => technology.id === skill.id)) {
+            error(file, `${label}: the same id exists in technologies.json. Ids must be unique.`);
+        }
+
+        if (!isText(skill.name)) {
+            error(file, `${label}: "name" is required.`);
+        }
+
+        const area = areas.find(item => item.id === skill.area);
+
+        if (!area) {
+            error(file, `${label}: area "${skill.area}" does not exist in areas.json.`);
+        } else if (skill.subarea && !(area.subareas ?? []).some(subarea => subarea.id === skill.subarea)) {
+            error(file, `${label}: subarea "${skill.subarea}" does not exist in the "${area.id}" area.`);
+        }
+
+        if (skill.icon) {
+            checkFile(file, skill.icon, `${label} icon`);
+        }
+
+        checkXp(file, label, skill.xp);
+    });
+}
+
+function checkAreas(areas, areaGroups) {
     const file = "js/data/areas.json";
 
     areas.forEach(area => {
@@ -270,6 +395,24 @@ function checkAreas(areas) {
         if (typeof area.order !== "number") {
             error(file, `Area "${area.id}": "order" must be a number.`);
         }
+
+        if (area.group && !areaGroups.some(group => group.id === area.group)) {
+            error(file, `Area "${area.id}": group "${area.group}" does not exist in area-groups.json.`);
+        }
+
+        const subareaIds = new Set();
+
+        (area.subareas ?? []).forEach(subarea => {
+            if (subareaIds.has(subarea.id)) {
+                error(file, `Area "${area.id}": duplicated subarea "${subarea.id}".`);
+            }
+
+            subareaIds.add(subarea.id);
+
+            if (!isText(subarea.name)) {
+                error(file, `Area "${area.id}": subarea "${subarea.id}" needs a "name".`);
+            }
+        });
     });
 }
 
@@ -290,12 +433,17 @@ function checkSiteContent(siteContent, projectsIndex, sideProjectsIndex, data) {
         warning(file, `The Home layout is designed for 2 "sideProjects" (currently ${(siteContent.sideProjects ?? []).length}).`);
     }
 
-    Object.entries(siteContent.skills ?? {}).forEach(([areaId, technologyIds]) => {
+    Object.entries(siteContent.skills ?? {}).forEach(([areaId, ids]) => {
         if (!data.areas.some(area => area.id === areaId)) {
             error(file, `skills: area "${areaId}" does not exist in areas.json.`);
         }
 
-        checkReferences(file, technologyIds, data.technologies, `skills.${areaId}`);
+        checkReferences(
+            file,
+            ids,
+            [...data.technologies, ...data.skillDefinitions],
+            `skills.${areaId} (technologies.json or skills.json)`
+        );
     });
 }
 
@@ -440,9 +588,12 @@ function render() {
 }
 
 async function validate() {
-    const [areas, technologies, platforms, genres, projectsIndex, sideProjectsIndex, siteContent, experience, about] =
+    const [stores, areas, areaGroups, skillDefinitions, technologies, platforms, genres, projectsIndex, sideProjectsIndex, siteContent, experience, about] =
         await Promise.all([
+            loadSafely(loadStores, "js/data/stores.json"),
             loadSafely(loadAreas, "js/data/areas.json"),
+            loadSafely(loadAreaGroups, "js/data/area-groups.json"),
+            loadSafely(loadSkillDefinitions, "js/data/skills.json"),
             loadSafely(loadTechnologies, "js/data/technologies.json"),
             loadSafely(loadPlatforms, "js/data/platforms.json"),
             loadSafely(loadGenres, "js/data/genres.json"),
@@ -455,17 +606,23 @@ async function validate() {
 
     const data = {
         areas: areas ?? [],
+        stores: stores ?? [],
+        skillDefinitions: skillDefinitions ?? [],
         technologies: technologies ?? [],
         platforms: platforms ?? [],
         genres: genres ?? []
     };
 
     if (areas) {
-        checkAreas(areas);
+        checkAreas(areas, areaGroups ?? []);
     }
 
     if (technologies) {
         checkTechnologies(technologies, data.areas);
+    }
+
+    if (skillDefinitions) {
+        checkSkillDefinitions(skillDefinitions, data.areas, data.technologies);
     }
 
     const projects = projectsIndex ? await checkCollection("projects", projectsIndex, data) : [];

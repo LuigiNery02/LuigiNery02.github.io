@@ -1,0 +1,27 @@
+{
+  "id": "nosferatu-of-vampire-terrible-phantomes",
+  "title": "Nosferatu of Vampire Terrible Phantomes",
+  "cover": "assets/projects/saigo-no-shunkan/cover.png",
+  "classification": {
+    "type": "academic",
+    "subtype": ""
+  },
+  "organization": {
+    "name": "Universidade Anhembi Morumbi"
+  },
+  "general": {
+    "year": 2022,
+    "status": "completed",
+    "technologies": ["unity"],
+    "platforms": ["pc"],
+    "genres": ["action-adventure"],
+    "teamSize": 8
+  },
+  "order": 6,
+  "details": {
+    "about": [],
+    "contributions": [],
+    "learnings": []
+  },
+  "gallery": []
+}

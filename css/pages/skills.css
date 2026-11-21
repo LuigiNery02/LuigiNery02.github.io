@@ -1,9 +1,27 @@
 .skills-areas {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 64px;
     padding-inline: 20px;
     padding-block-end: 40px;
+}
+
+.skills-area-group {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skills-area-group-title {
+    margin: 0;
+    font-size: 28px;
+    color: var(--primary-color);
+}
+
+.skills-area-group-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .skills-areas .skill-group-cards {

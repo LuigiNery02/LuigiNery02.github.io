@@ -1,3 +1,6 @@
+const SAFE_URL_PATTERN = /^(https?:\/\/|mailto:|#|\.{0,2}\/|[\w-]+\.html)/i;
+const EXTERNAL_URL_PATTERN = /^(https?:\/\/|mailto:)/i;
+
 function escapeHtml(text) {
     return text
         .replace(/&/g, "&amp;")
@@ -6,11 +9,29 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;");
 }
 
+export function isSafeUrl(url) {
+    return typeof url === "string" && SAFE_URL_PATTERN.test(url.trim());
+}
+
+export function isExternalUrl(url) {
+    return EXTERNAL_URL_PATTERN.test(url);
+}
+
+function createLink(match, label, url) {
+    if (!isSafeUrl(url)) {
+        return label;
+    }
+
+    const target = isExternalUrl(url) ? ' target="_blank" rel="noopener noreferrer"' : "";
+    return `<a class="rich-link" href="${url}"${target}>${label}</a>`;
+}
+
 export function formatInline(text) {
     return escapeHtml(text)
         .replace(/`(.+?)`/g, "<code>$1</code>")
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, createLink)
         .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-        .replace(/\*(.+?)\*/g, "<em>$1</em>");
+        .replace(/(^|[^\w/])\*(?!\s)(.+?)\*/g, "$1<em>$2</em>");
 }
 
 function createBlock(block) {

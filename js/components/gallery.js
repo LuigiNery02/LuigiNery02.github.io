@@ -1,3 +1,7 @@
+import { createYouTubeEmbed } from "../systems/youtube.js";
+
+const VIDEO_TYPES = ["video", "youtube"];
+
 function createElement(tag, className) {
     const element = document.createElement(tag);
 
@@ -23,11 +27,37 @@ function createIconButton(className, label, icon) {
 function createVideo(item) {
     const figure = createElement("figure", "gallery-video");
 
+    if (item.type === "youtube") {
+        const embed = createYouTubeEmbed(item);
+
+        if (!embed) {
+            return null;
+        }
+
+        figure.appendChild(embed);
+
+        if (item.caption) {
+            const caption = createElement("figcaption", "gallery-caption secondary-texts");
+            caption.textContent = item.caption;
+            figure.appendChild(caption);
+        }
+
+        return figure;
+    }
+
     const video = createElement("video");
     video.src = item.src;
-    video.controls = true;
-    video.preload = "metadata";
     video.playsInline = true;
+
+    if (item.autoplay) {
+        video.muted = true;
+        video.loop = true;
+        video.autoplay = true;
+        video.preload = "auto";
+    } else {
+        video.controls = true;
+        video.preload = "metadata";
+    }
 
     if (item.poster) {
         video.poster = item.poster;
@@ -169,8 +199,10 @@ export function createGallery(items) {
     const gallery = createElement("div", "gallery");
 
     items
-        .filter(item => item.type === "video")
-        .forEach(item => gallery.appendChild(createVideo(item)));
+        .filter(item => VIDEO_TYPES.includes(item.type))
+        .map(createVideo)
+        .filter(Boolean)
+        .forEach(element => gallery.appendChild(element));
 
     const images = items.filter(item => item.type === "image");
 

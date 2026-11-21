@@ -1,0 +1,92 @@
+[
+  {
+    "id": "gameplay-programming",
+    "name": "Gameplay Programming",
+    "area": "programming",
+    "order": 1,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "systems-design",
+    "name": "Systems Design",
+    "area": "game-design",
+    "order": 1,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "level-design",
+    "name": "Level Design",
+    "area": "game-design",
+    "order": 2,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "narrative-design",
+    "name": "Narrative Design",
+    "area": "game-design",
+    "order": 3,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "concept-art",
+    "name": "Concept Art",
+    "area": "art",
+    "subarea": "2d-art",
+    "order": 1,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "storyboard",
+    "name": "Storyboard",
+    "area": "art",
+    "subarea": "2d-art",
+    "order": 2,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "3d-modeling",
+    "name": "3D Modeling",
+    "area": "art",
+    "subarea": "3d-art",
+    "order": 3,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "uv-mapping",
+    "name": "UV Mapping",
+    "area": "art",
+    "subarea": "3d-art",
+    "order": 4,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "texturing",
+    "name": "Texturing",
+    "area": "art",
+    "subarea": "3d-art",
+    "order": 5,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "materials",
+    "name": "Materials",
+    "area": "art",
+    "subarea": "3d-art",
+    "order": 6,
+    "xp": { "enabled": true, "initialProjects": 1, "baseProjectsPerLevel": 2, "increasePerLevel": 1 }
+  },
+  {
+    "id": "trailer-editing",
+    "name": "Trailer Editing",
+    "area": "video-editing",
+    "order": 1,
+    "xp": { "enabled": false }
+  },
+  {
+    "id": "frontend-development",
+    "name": "Frontend Development",
+    "area": "web-development",
+    "order": 1,
+    "xp": { "enabled": false }
+  }
+]

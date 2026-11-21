@@ -24,7 +24,7 @@
     "contributions": [
       {
         "title": "[Placeholder] Adaptive Music System",
-        "primaryArea": "sound-design",
+        "primaryArea": "audio",
         "relatedAreas": ["programming"],
         "summary": "[Placeholder] Created ambient layers that react to the player's position."
       },

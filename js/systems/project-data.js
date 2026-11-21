@@ -7,3 +7,13 @@ export function getProjectAreas(project) {
         )
     ];
 }
+
+export function getProjectSkills(project) {
+    return [
+        ...new Set(
+            project.details.contributions.flatMap(
+                contribution => contribution.skills ?? []
+            )
+        )
+    ];
+}

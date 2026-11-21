@@ -3,18 +3,46 @@
     "id": "programming",
     "name": "Programming",
     "color": "#4A90E2",
+    "group": "game-development",
     "order": 1
   },
   {
-    "id": "3d-modeling",
-    "name": "3D Modeling",
-    "color": "#52A879",
+    "id": "game-design",
+    "name": "Game Design",
+    "color": "#E2A04A",
+    "group": "game-development",
     "order": 2
   },
   {
-    "id": "sound-design",
-    "name": "Sound Design",
+    "id": "art",
+    "name": "Art",
+    "color": "#52A879",
+    "group": "game-development",
+    "order": 3,
+    "subareas": [
+      { "id": "2d-art", "name": "2D Art" },
+      { "id": "3d-art", "name": "3D Art" }
+    ]
+  },
+  {
+    "id": "audio",
+    "name": "Audio",
     "color": "#A879D8",
-    "order": 3
+    "group": "game-development",
+    "order": 4
+  },
+  {
+    "id": "video-editing",
+    "name": "Video Editing",
+    "color": "#E25A6E",
+    "group": "additional-skills",
+    "order": 5
+  },
+  {
+    "id": "web-development",
+    "name": "Web Development",
+    "color": "#3FBFB4",
+    "group": "additional-skills",
+    "order": 6
   }
 ]

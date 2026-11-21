@@ -1,18 +1,46 @@
 [
   {
-    "id": "nova-heights",
+    "id": "legion-setup-auto-battle",
     "order": 1
   },
   {
-    "id": "math-cubes",
+    "id": "afk-game-vertical-slice",
     "order": 2
   },
   {
-    "id": "capitao-saude",
+    "id": "nova-heights",
     "order": 3
   },
   {
-    "id": "saigo-no-shunkan",
+    "id": "math-cubes",
     "order": 4
+  },
+  {
+    "id": "saigo-no-shunkan",
+    "order": 5
+  },
+  {
+    "id": "nosferatu-of-vampire-terrible-phantomes",
+    "order": 6
+  },
+  {
+    "id": "save-your-sound",
+    "order": 7
+  },
+  {
+    "id": "who-am-i",
+    "order": 8
+  },
+  {
+    "id": "clickling-star",
+    "order": 9
+  },
+  {
+    "id": "the-package",
+    "order": 10
+  },
+  {
+    "id": "capitao-saude",
+    "order": 11
   }
 ]

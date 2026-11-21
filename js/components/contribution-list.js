@@ -1,5 +1,6 @@
 import { createAreaTag } from "./area-tag.js";
 import { createContributionModal, getContributionTabs } from "./contribution-modal.js";
+import { formatInline, isSafeUrl, isExternalUrl } from "../systems/rich-text.js";
 
 function groupByPrimaryArea(contributions, areas) {
     const groups = new Map();
@@ -17,7 +18,65 @@ function groupByPrimaryArea(contributions, areas) {
     return [...groups.entries()].sort(([a], [b]) => orderOf(a) - orderOf(b));
 }
 
-function createContributionItem(contribution, areas, modal) {
+function createSkillList(contribution, skillDefinitions) {
+    const skills = (contribution.skills ?? [])
+        .map(id => skillDefinitions.find(skill => skill.id === id))
+        .filter(Boolean);
+
+    if (skills.length === 0) {
+        return null;
+    }
+
+    const list = document.createElement("ul");
+    list.classList.add("contribution-skills");
+    list.setAttribute("aria-label", "Skills used");
+
+    skills.forEach(skill => {
+        const item = document.createElement("li");
+        item.classList.add("contribution-skill", "code-texts");
+        item.textContent = skill.name;
+        list.appendChild(item);
+    });
+
+    return list;
+}
+
+function createLinkList(contribution) {
+    const links = (contribution.links ?? []).filter(link => link.label && isSafeUrl(link.href));
+
+    if (links.length === 0) {
+        return null;
+    }
+
+    const list = document.createElement("ul");
+    list.classList.add("contribution-links");
+
+    links.forEach(link => {
+        const item = document.createElement("li");
+
+        const anchor = document.createElement("a");
+        anchor.classList.add("contribution-link", "code-texts");
+        anchor.href = link.href;
+        anchor.textContent = link.label;
+
+        if (isExternalUrl(link.href)) {
+            anchor.target = "_blank";
+            anchor.rel = "noopener noreferrer";
+        }
+
+        const icon = document.createElement("i");
+        icon.className = "fa-solid fa-arrow-up-right-from-square";
+        icon.setAttribute("aria-hidden", "true");
+        anchor.appendChild(icon);
+
+        item.appendChild(anchor);
+        list.appendChild(item);
+    });
+
+    return list;
+}
+
+function createContributionItem(contribution, areas, skillDefinitions, modal) {
     const item = document.createElement("li");
     item.classList.add("contribution-item");
 
@@ -40,8 +99,20 @@ function createContributionItem(contribution, areas, modal) {
     if (contribution.summary) {
         const summary = document.createElement("p");
         summary.classList.add("contribution-summary", "secondary-texts");
-        summary.textContent = contribution.summary;
+        summary.innerHTML = formatInline(contribution.summary);
         item.appendChild(summary);
+    }
+
+    const linkList = createLinkList(contribution);
+
+    if (linkList) {
+        item.appendChild(linkList);
+    }
+
+    const skillList = createSkillList(contribution, skillDefinitions);
+
+    if (skillList) {
+        item.appendChild(skillList);
     }
 
     if (getContributionTabs(contribution).length > 0) {
@@ -69,7 +140,7 @@ function createContributionItem(contribution, areas, modal) {
     return item;
 }
 
-export function createContributionList(contributions, areas) {
+export function createContributionList(contributions, areas, skillDefinitions = []) {
     const container = document.createElement("div");
     container.classList.add("contributions");
 
@@ -87,7 +158,7 @@ export function createContributionList(contributions, areas) {
 
         const list = document.createElement("ul");
         list.classList.add("contribution-items");
-        entries.forEach(entry => list.appendChild(createContributionItem(entry, areas, modal)));
+        entries.forEach(entry => list.appendChild(createContributionItem(entry, areas, skillDefinitions, modal)));
 
         group.appendChild(list);
         container.appendChild(group);
